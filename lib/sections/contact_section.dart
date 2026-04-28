@@ -126,7 +126,7 @@ class ContactSection extends StatelessWidget {
               .scale(begin: const Offset(0.8, 0.8)),
           const SizedBox(height: 80),
           Text(
-            'Designed & Built by Mohamed Ali',
+            'Designed & Built by ${AppConstants.devName}',
             style: const TextStyle(
               color: AppColors.textSecondary,
               fontSize: 14,

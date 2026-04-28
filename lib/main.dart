@@ -5,6 +5,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'core/theme/app_theme.dart';
 import 'pages/home_page.dart';
 import 'core/data/portfolio_data.dart';
+import 'core/constants/app_constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +34,7 @@ class PortfolioApp extends StatelessWidget {
           ],
         );
       },
-      title: 'Mohamed Ali - Portfolio',
+      title: '${AppConstants.devName} - Portfolio',
       theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       home: const HomePage(),

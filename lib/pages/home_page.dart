@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import '../core/theme/app_colors.dart';
+import '../core/constants/app_constants.dart';
 import '../widgets/animations/animated_gradient_background.dart';
 import '../sections/hero_section.dart';
 import '../sections/about_section.dart';
@@ -49,10 +50,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final isMobile = ResponsiveBreakpoints.of(context).isMobile;
+    final isTablet = ResponsiveBreakpoints.of(context).isTablet;
+    final isMobileOrTablet = isMobile || isTablet;
 
     return Scaffold(
       key: _scaffoldKey,
-      drawer: isMobile
+      drawer: isMobileOrTablet
           ? Drawer(
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               child: ListView(
@@ -68,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                       child: FittedBox(
                         fit: BoxFit.scaleDown,
                         child: Text(
-                          'Mohamed Ali',
+                          AppConstants.devName,
                           style: Theme.of(context).textTheme.displaySmall
                               ?.copyWith(
                                 color: Colors.white,
@@ -139,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                   fit: BoxFit.scaleDown,
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Mohamed Ali',
+                    AppConstants.devName,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2.0,
@@ -147,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              actions: isMobile
+              actions: isMobileOrTablet
                   ? null
                   : [
                       Flexible(

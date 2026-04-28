@@ -50,7 +50,10 @@ class ProjectsSection extends StatelessWidget {
                     description: project['description'] ?? '',
                     imageUrl: project['imageUrl'] ?? '',
                     technologies: List<String>.from(project['technologies'] ?? []),
-                    playStoreUrl: project['playStoreUrl'],
+                    playStoreUrl: (project['playStoreUrl'] != null &&
+                            (project['playStoreUrl'] as String).isNotEmpty)
+                        ? project['playStoreUrl']
+                        : null,
                     githubUrl: project['githubUrl'],
                   )).toList();
 

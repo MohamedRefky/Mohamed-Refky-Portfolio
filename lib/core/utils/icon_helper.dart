@@ -22,6 +22,8 @@ class IconHelper {
       case 'gaugeHigh': return FontAwesomeIcons.gaugeHigh;
       case 'mobileButton': return FontAwesomeIcons.mobileButton;
       case 'laptopCode': return FontAwesomeIcons.laptopCode;
+      case 'graduationCap': return FontAwesomeIcons.graduationCap;
+      case 'chalkboardTeacher': return FontAwesomeIcons.chalkboardUser;
       default: return FontAwesomeIcons.circle;
     }
   }
