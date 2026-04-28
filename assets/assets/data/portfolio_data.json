@@ -58,19 +58,16 @@
   ],
   "experience": [
     {
-      "title": "Coding Instructor",
+      "title": "Coding Instructor & Mentor",
       "company": "iSchool",
-      "period": "April 2026 – Present"
+      "period": "April 2026 – Present",
+      "description": "Selected for the position after successfully passing the rigorous DEMI evaluation phase to instruct students in programming fundamentals."
     },
     {
       "title": "Flutter Developer (Freelance)",
-      "company": "Self-Employed",
-      "period": "2025 – Present"
-    },
-    {
-      "title": "Software Development Intern",
-      "company": "DevelopersHub Corporation",
-      "period": "April 2026 – Present"
+      "company": "Remote",
+      "period": "April 2026 – Present",
+      "description": "Developed and delivered scalable, cross-platform mobile solutions including the Eduon LMS platform."
     }
   ],
   "projects": [
@@ -105,16 +102,46 @@
   ],
   "certificates": [
     {
-      "title": "Mastering Clean Architecture & SOLID",
-      "platform": "Usama Elgendy Academy",
+      "title": "Mastering Clean Architecture & SOLID Principles",
+      "platform": "Usama Elgendy",
       "date": "2026",
       "icon": "layerGroup"
+    },
+    {
+      "title": "Flutter Master Course: From Zero To Hero",
+      "platform": "Usama Elgendy",
+      "date": "",
+      "icon": "mobileAlt"
+    },
+    {
+      "title": "Dart Programming & OOP for Absolute Beginners",
+      "platform": "Usama Elgendy",
+      "date": "",
+      "icon": "code"
+    },
+    {
+      "title": "The Ultimate Git & GitHub Course",
+      "platform": "Usama Elgendy",
+      "date": "",
+      "icon": "codeBranch"
     },
     {
       "title": "Bachelor's in Computer Science (A+)",
       "platform": "Benha University",
       "date": "2024",
       "icon": "graduationCap"
+    },
+    {
+      "title": "Flutter & Dart Full Development Diploma",
+      "platform": "EraaSoft",
+      "date": "2024",
+      "icon": "laptopCode"
+    },
+    {
+      "title": "Flutter & Dart Complete Development Courses",
+      "platform": "Udemy, Tharwat Samy",
+      "date": "2023",
+      "icon": "video"
     }
   ],
   "expertise": [
@@ -217,6 +244,28 @@
         "Hive & SharedPreferences",
         "Flutter Secure Storage"
       ]
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/MohamedRefky",
+      "icon": "github"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/mohamedrefky",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "WhatsApp",
+      "url": "https://wa.me/201019964918",
+      "icon": "whatsapp"
+    },
+    {
+      "platform": "Email",
+      "url": "mailto:mohamedrifky9765@gmail.com",
+      "icon": "email"
     }
   ]
 }
