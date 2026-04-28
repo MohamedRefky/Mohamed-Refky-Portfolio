@@ -12,6 +12,7 @@ import '../sections/certificates_section.dart';
 import '../sections/contact_section.dart';
 import '../sections/services_section.dart';
 import '../sections/expertise_section.dart';
+import '../sections/education_section.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -197,6 +198,7 @@ class _HomePageState extends State<HomePage> {
                   ProjectsSection(key: _projectsKey),
                   const TechStackSection(),
                   ExperienceSection(key: _experienceKey),
+                  const EducationSection(),
                   const CertificatesSection(),
                   ContactSection(key: _contactKey),
                 ],

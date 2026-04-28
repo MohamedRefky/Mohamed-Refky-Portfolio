@@ -155,6 +155,17 @@ class _TimelineItem extends StatelessWidget {
                     color: AppColors.textSecondary,
                   ),
                 ),
+                if (experience['description'] != null) ...[
+                  const SizedBox(height: 12),
+                  Text(
+                    experience['description']!,
+                    style: const TextStyle(
+                      fontSize: 15,
+                      color: AppColors.textSecondary,
+                      height: 1.5,
+                    ),
+                  ),
+                ],
               ],
             ),
           ),

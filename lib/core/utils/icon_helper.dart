@@ -24,6 +24,9 @@ class IconHelper {
       case 'laptopCode': return FontAwesomeIcons.laptopCode;
       case 'graduationCap': return FontAwesomeIcons.graduationCap;
       case 'chalkboardTeacher': return FontAwesomeIcons.chalkboardUser;
+      case 'linkedin': return FontAwesomeIcons.linkedinIn;
+      case 'whatsapp': return FontAwesomeIcons.whatsapp;
+      case 'email': return FontAwesomeIcons.envelope;
       default: return FontAwesomeIcons.circle;
     }
   }

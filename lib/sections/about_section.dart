@@ -36,6 +36,29 @@ class AboutSection extends StatelessWidget {
               .animate()
               .fadeIn(delay: 500.ms, duration: 600.ms)
               .slideY(begin: 0.2, end: 0),
+          const SizedBox(height: 24),
+          Wrap(
+            spacing: 16,
+            runSpacing: 16,
+            alignment: WrapAlignment.center,
+            children: [
+              if (PortfolioData.data['personalInfo']?['location'] != null)
+                _InfoChip(
+                  icon: const FaIcon(FontAwesomeIcons.locationDot, size: 16, color: AppColors.primary),
+                  text: PortfolioData.data['personalInfo']!['location']!,
+                ),
+              if (PortfolioData.data['personalInfo']?['yearsOfExperience'] != null)
+                _InfoChip(
+                  icon: const FaIcon(FontAwesomeIcons.briefcase, size: 16, color: AppColors.primary),
+                  text: '${PortfolioData.data['personalInfo']!['yearsOfExperience']!} Years Experience',
+                ),
+              if (PortfolioData.data['personalInfo']?['availability'] != null)
+                _InfoChip(
+                  icon: const FaIcon(FontAwesomeIcons.calendarCheck, size: 16, color: AppColors.primary),
+                  text: PortfolioData.data['personalInfo']!['availability']!,
+                ),
+            ],
+          ).animate().fadeIn(delay: 600.ms, duration: 600.ms).slideY(begin: 0.2, end: 0),
           SizedBox(height: isMobile ? 32 : 60),
           LayoutBuilder(
             builder: (context, constraints) {
@@ -153,6 +176,44 @@ class _StatCardState extends State<_StatCard> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _InfoChip extends StatelessWidget {
+  final Widget icon;
+  final String text;
+
+  const _InfoChip({
+    required this.icon,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: AppColors.primary.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(30),
+        border: Border.all(
+          color: AppColors.primary.withValues(alpha: 0.2),
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          icon,
+          const SizedBox(width: 8),
+          Text(
+            text,
+            style: const TextStyle(
+              color: AppColors.textPrimary,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -5,6 +5,8 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/data/portfolio_data.dart';
+import '../../core/utils/icon_helper.dart';
 import '../widgets/buttons/primary_button.dart';
 import '../../core/widgets/section_title.dart';
 
@@ -51,67 +53,55 @@ class ContactSection extends StatelessWidget {
                   ? (constraints.maxWidth - 24) / 2 
                   : 240.0;
 
+              final socialLinks = List<Map<String, dynamic>>.from(
+                PortfolioData.data['socialLinks'] ?? [],
+              );
+
+              final List<Widget> cards = socialLinks.map((link) {
+                String displayValue = link['url'] ?? '';
+                if (displayValue.startsWith('mailto:')) {
+                  displayValue = displayValue.replaceAll('mailto:', '');
+                } else if (displayValue.contains('linkedin.com/in/')) {
+                  displayValue = displayValue.split('linkedin.com/in/').last.replaceAll('/', '');
+                } else if (displayValue.contains('github.com/')) {
+                  displayValue = displayValue.split('github.com/').last.replaceAll('/', '');
+                } else if (displayValue.startsWith('https://wa.me/')) {
+                  displayValue = '+${displayValue.replaceAll('https://wa.me/', '')}';
+                }
+
+                return _ContactCard(
+                  width: cardWidth,
+                  icon: FaIcon(
+                    IconHelper.getIcon(link['icon'] ?? ''),
+                    size: 28,
+                    color: AppColors.secondary,
+                  ),
+                  title: link['platform'] ?? '',
+                  value: displayValue,
+                  onTap: () => _launchUrl(link['url'] ?? ''),
+                );
+              }).toList();
+
+              // Add Phone Call Card
+              cards.add(
+                _ContactCard(
+                  width: cardWidth,
+                  icon: const FaIcon(
+                    FontAwesomeIcons.phone,
+                    size: 28,
+                    color: AppColors.secondary,
+                  ),
+                  title: 'Call',
+                  value: AppConstants.phoneCallUrl.replaceAll('tel:', ''),
+                  onTap: () => _launchUrl(AppConstants.phoneCallUrl),
+                ),
+              );
+
               return Wrap(
                 spacing: 24,
                 runSpacing: 24,
                 alignment: WrapAlignment.center,
-                children: [
-                  _ContactCard(
-                    width: cardWidth,
-                    icon: const FaIcon(
-                      FontAwesomeIcons.envelope,
-                      size: 28,
-                      color: AppColors.secondary,
-                    ),
-                    title: 'Email',
-                    value: AppConstants.email.replaceAll('mailto:', ''),
-                    onTap: () => _launchUrl(AppConstants.email),
-                  ),
-                  _ContactCard(
-                    width: cardWidth,
-                    icon: const FaIcon(
-                      FontAwesomeIcons.linkedinIn,
-                      size: 28,
-                      color: AppColors.secondary,
-                    ),
-                    title: 'LinkedIn',
-                    value: AppConstants.linkedinUrl.split('/').last,
-                    onTap: () => _launchUrl(AppConstants.linkedinUrl),
-                  ),
-                  _ContactCard(
-                    width: cardWidth,
-                    icon: const FaIcon(
-                      FontAwesomeIcons.github,
-                      size: 28,
-                      color: AppColors.secondary,
-                    ),
-                    title: 'GitHub',
-                    value: AppConstants.githubUrl.split('/').last,
-                    onTap: () => _launchUrl(AppConstants.githubUrl),
-                  ),
-                  _ContactCard(
-                    width: cardWidth,
-                    icon: const FaIcon(
-                      FontAwesomeIcons.whatsapp,
-                      size: 28,
-                      color: AppColors.secondary,
-                    ),
-                    title: 'WhatsApp',
-                    value: AppConstants.whatsappNumber,
-                    onTap: () => _launchUrl(AppConstants.whatsappUrl),
-                  ),
-                  _ContactCard(
-                    width: cardWidth,
-                    icon: const FaIcon(
-                      FontAwesomeIcons.phone,
-                      size: 28,
-                      color: AppColors.secondary,
-                    ),
-                    title: 'Call',
-                    value: AppConstants.phoneCallUrl.replaceAll('tel:', ''),
-                    onTap: () => _launchUrl(AppConstants.phoneCallUrl),
-                  ),
-                ].animate(interval: 200.ms).fadeIn(duration: 500.ms).scale(),
+                children: cards.animate(interval: 200.ms).fadeIn(duration: 500.ms).scale(),
               );
             },
           ),
