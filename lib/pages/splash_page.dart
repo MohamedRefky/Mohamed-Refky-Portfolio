@@ -24,8 +24,8 @@ class _SplashPageState extends State<SplashPage> {
     // 1. Load Data
     await PortfolioData.load();
 
-    // 2. Wait a bit for the animation to look good (minimum 2 seconds)
-    await Future.delayed(const Duration(seconds: 2));
+    // 2. Wait a bit for the animation (500ms is enough for a snappy feel)
+    await Future.delayed(const Duration(milliseconds: 500));
 
     if (!mounted) return;
 

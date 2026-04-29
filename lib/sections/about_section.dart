@@ -25,7 +25,8 @@ class AboutSection extends StatelessWidget {
           const SectionTitle(title: 'About Me'),
           const SizedBox(height: 40),
           Text(
-                PortfolioData.data['personalInfo']?['about'] ?? 'Flutter developer with 2+ years of experience integrating modern backends.',
+                PortfolioData.data['personalInfo']?['about'] ??
+                    'Flutter developer with 2+ years of experience integrating modern backends.',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   fontSize: 18,
                   height: 1.8,
@@ -38,34 +39,55 @@ class AboutSection extends StatelessWidget {
               .slideY(begin: 0.2, end: 0),
           const SizedBox(height: 24),
           Wrap(
-            spacing: 16,
-            runSpacing: 16,
-            alignment: WrapAlignment.center,
-            children: [
-              if (PortfolioData.data['personalInfo']?['location'] != null)
-                _InfoChip(
-                  icon: const FaIcon(FontAwesomeIcons.locationDot, size: 16, color: AppColors.primary),
-                  text: PortfolioData.data['personalInfo']!['location']!,
-                ),
-              if (PortfolioData.data['personalInfo']?['yearsOfExperience'] != null)
-                _InfoChip(
-                  icon: const FaIcon(FontAwesomeIcons.briefcase, size: 16, color: AppColors.primary),
-                  text: '${PortfolioData.data['personalInfo']!['yearsOfExperience']!} Years Experience',
-                ),
-              if (PortfolioData.data['personalInfo']?['availability'] != null)
-                _InfoChip(
-                  icon: const FaIcon(FontAwesomeIcons.calendarCheck, size: 16, color: AppColors.primary),
-                  text: PortfolioData.data['personalInfo']!['availability']!,
-                ),
-            ],
-          ).animate().fadeIn(delay: 600.ms, duration: 600.ms).slideY(begin: 0.2, end: 0),
+                spacing: 16,
+                runSpacing: 16,
+                alignment: WrapAlignment.center,
+                children: [
+                  if (PortfolioData.data['personalInfo']?['location'] != null)
+                    _InfoChip(
+                      icon: const FaIcon(
+                        FontAwesomeIcons.locationDot,
+                        size: 16,
+                        color: AppColors.primary,
+                      ),
+                      text: PortfolioData.data['personalInfo']!['location']!,
+                    ),
+                  if (PortfolioData
+                          .data['personalInfo']?['yearsOfExperience'] !=
+                      null)
+                    _InfoChip(
+                      icon: const FaIcon(
+                        FontAwesomeIcons.briefcase,
+                        size: 16,
+                        color: AppColors.primary,
+                      ),
+                      text:
+                          '${PortfolioData.data['personalInfo']!['yearsOfExperience']!} Years Experience',
+                    ),
+                  if (PortfolioData.data['personalInfo']?['availability'] !=
+                      null)
+                    _InfoChip(
+                      icon: const FaIcon(
+                        FontAwesomeIcons.calendarCheck,
+                        size: 16,
+                        color: AppColors.primary,
+                      ),
+                      text:
+                          PortfolioData.data['personalInfo']!['availability']!,
+                    ),
+                ],
+              )
+              .animate()
+              .fadeIn(delay: 600.ms, duration: 600.ms)
+              .slideY(begin: 0.2, end: 0),
           SizedBox(height: isMobile ? 32 : 60),
           LayoutBuilder(
             builder: (context, constraints) {
-              final cardWidth = isMobile 
-                  ? (constraints.maxWidth - 24) / 2 // 2 columns with 24 spacing
+              final cardWidth = isMobile
+                  ? (constraints.maxWidth - 24) /
+                        2 // 2 columns with 24 spacing
                   : 260.0;
-              
+
               final statsList = List<Map<String, dynamic>>.from(
                 PortfolioData.data['stats'] ?? [],
               );
@@ -74,16 +96,23 @@ class AboutSection extends StatelessWidget {
                 spacing: 24,
                 runSpacing: 24,
                 alignment: WrapAlignment.center,
-                children: statsList.map((stat) => _StatCard(
-                      width: cardWidth,
-                      title: stat['title'] ?? '',
-                      subtitle: stat['subtitle'] ?? '',
-                      icon: FaIcon(
-                        IconHelper.getIcon(stat['icon'] ?? ''),
-                        size: isMobile ? 32 : 40,
-                        color: AppColors.secondary,
+                children: statsList
+                    .map(
+                      (stat) => _StatCard(
+                        width: cardWidth,
+                        title: stat['title'] ?? '',
+                        subtitle: stat['subtitle'] ?? '',
+                        icon: FaIcon(
+                          IconHelper.getIcon(stat['icon'] ?? ''),
+                          size: isMobile ? 32 : 40,
+                          color: AppColors.secondary,
+                        ),
                       ),
-                    )).toList().animate(interval: 200.ms).fadeIn(duration: 500.ms).scale(),
+                    )
+                    .toList()
+                    .animate(interval: 200.ms)
+                    .fadeIn(duration: 500.ms)
+                    .scale(),
               );
             },
           ),
@@ -116,7 +145,7 @@ class _StatCardState extends State<_StatCard> {
   @override
   Widget build(BuildContext context) {
     final isMobile = ResponsiveBreakpoints.of(context).isMobile;
-    
+
     return MouseRegion(
       onEnter: (_) => setState(() => isHovered = true),
       onExit: (_) => setState(() => isHovered = false),
@@ -149,8 +178,8 @@ class _StatCardState extends State<_StatCard> {
         transform: isHovered
             ? Matrix4.translationValues(0.0, -8.0, 0.0)
             : isMobile
-                ? Matrix4.translationValues(0.0, -4.0, 0.0)
-                : Matrix4.identity(),
+            ? Matrix4.translationValues(0.0, -4.0, 0.0)
+            : Matrix4.identity(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -185,10 +214,7 @@ class _InfoChip extends StatelessWidget {
   final Widget icon;
   final String text;
 
-  const _InfoChip({
-    required this.icon,
-    required this.text,
-  });
+  const _InfoChip({required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -197,9 +223,7 @@ class _InfoChip extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primary.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(
-          color: AppColors.primary.withValues(alpha: 0.2),
-        ),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
