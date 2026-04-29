@@ -12,7 +12,9 @@ class AppConstants {
 
   static String get devImagePath =>
       _info['image'] ?? 'assets/images/my_image.jpg';
-  static String get devCvPath => _info['cv'] ?? 'cv.pdf';
+  static String get devCvPath =>
+      _info['cv'] ??
+      'https://drive.google.com/file/d/1o4O1oOJMVoQpqk9DghUuFOFuRJt7Oox4/view?usp=drive_link';
 
   // Social Links
   static String get githubUrl =>

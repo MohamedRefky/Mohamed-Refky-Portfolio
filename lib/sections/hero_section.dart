@@ -64,10 +64,7 @@ class _HeroText extends StatelessWidget {
   final VoidCallback? onViewProjects;
   final VoidCallback? onContactMe;
 
-  const _HeroText({
-    this.onViewProjects,
-    this.onContactMe,
-  });
+  const _HeroText({this.onViewProjects, this.onContactMe});
 
   @override
   Widget build(BuildContext context) {
@@ -90,16 +87,16 @@ class _HeroText extends StatelessWidget {
         ).animate().fadeIn(duration: 500.ms).slideY(begin: 0.5, end: 0),
         const SizedBox(height: 8),
         FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            AppConstants.devName,
-            style: textTheme.displayLarge?.copyWith(
-              fontSize: isMobile ? 40 : 72,
-              height: 1.1,
-            ),
-            textAlign: isMobile ? TextAlign.center : TextAlign.left,
-          ),
-        )
+              fit: BoxFit.scaleDown,
+              child: Text(
+                AppConstants.devName,
+                style: textTheme.displayLarge?.copyWith(
+                  fontSize: isMobile ? 40 : 72,
+                  height: 1.1,
+                ),
+                textAlign: isMobile ? TextAlign.center : TextAlign.left,
+              ),
+            )
             .animate()
             .fadeIn(delay: 200.ms, duration: 600.ms)
             .slideX(begin: -0.2, end: 0),
@@ -136,46 +133,48 @@ class _HeroText extends StatelessWidget {
             .slideY(begin: 0.2, end: 0),
         const SizedBox(height: 40),
         Wrap(
-              spacing: 16,
-              runSpacing: 16,
-              alignment: ResponsiveBreakpoints.of(context).isMobile
-                  ? WrapAlignment.center
-                  : WrapAlignment.start,
-              children: [
-                PrimaryButton(
-                  text: 'View Projects',
-                  icon: const Icon(Icons.rocket_launch, size: 20),
-                  onPressed: onViewProjects,
-                ),
-                OutlineButton(
-                  text: 'Download CV',
-                  icon: const FaIcon(FontAwesomeIcons.download, size: 20),
-                  onPressed: () async {
-                    final Uri url = Uri.parse(AppConstants.devCvPath);
-                    if (!await launchUrl(url)) {
-                      throw Exception('Could not launch $url');
-                    }
-                  },
-                ),
-                OutlineButton(
-                  text: 'Contact Me',
-                  icon: const FaIcon(FontAwesomeIcons.paperPlane, size: 20),
-                  onPressed: onContactMe,
-                ),
-                OutlineButton(
-                  text: 'WhatsApp',
-                  icon: const FaIcon(FontAwesomeIcons.whatsapp, size: 20),
-                  onPressed: () async {
-                    final Uri url = Uri.parse(AppConstants.whatsappUrl);
-                    if (!await launchUrl(url)) {
-                      throw Exception('Could not launch $url');
-                    }
-                  },
-                ),
-              ],
-            )
-            .animate()
-            .fadeIn(delay: 800.ms, duration: 500.ms),
+          spacing: 16,
+          runSpacing: 16,
+          alignment: ResponsiveBreakpoints.of(context).isMobile
+              ? WrapAlignment.center
+              : WrapAlignment.start,
+          children: [
+            PrimaryButton(
+              text: 'View Projects',
+              icon: const Icon(Icons.rocket_launch, size: 20),
+              onPressed: onViewProjects,
+            ),
+            OutlineButton(
+              text: 'View CV',
+              icon: const FaIcon(FontAwesomeIcons.fileLines, size: 20),
+              onPressed: () async {
+                try {
+                  final Uri url = Uri.parse(AppConstants.devCvPath);
+                  if (!await launchUrl(url)) {
+                    debugPrint('Could not launch $url');
+                  }
+                } catch (e) {
+                  debugPrint('Error launching CV: $e');
+                }
+              },
+            ),
+            OutlineButton(
+              text: 'Contact Me',
+              icon: const FaIcon(FontAwesomeIcons.paperPlane, size: 20),
+              onPressed: onContactMe,
+            ),
+            OutlineButton(
+              text: 'WhatsApp',
+              icon: const FaIcon(FontAwesomeIcons.whatsapp, size: 20),
+              onPressed: () async {
+                final Uri url = Uri.parse(AppConstants.whatsappUrl);
+                if (!await launchUrl(url)) {
+                  throw Exception('Could not launch $url');
+                }
+              },
+            ),
+          ],
+        ).animate().fadeIn(delay: 800.ms, duration: 500.ms),
       ],
     );
   }
@@ -216,8 +215,6 @@ class _DevImage extends StatelessWidget {
           ),
         );
       },
-    )
-        .animate()
-        .fadeIn(delay: 400.ms, duration: 800.ms);
+    ).animate().fadeIn(delay: 400.ms, duration: 800.ms);
   }
 }
