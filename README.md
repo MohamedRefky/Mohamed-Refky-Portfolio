@@ -1,149 +1,77 @@
-# 🚀 Mohamed Refky Portfolio
+# 🚀 Mohamed Refky | Flutter Developer & Mobile App Engineer
 
-A modern, elegant, and fully customizable **Flutter Portfolio Application** to showcase your skills, projects, and experience in a professional way.
+Welcome to the repository of my personal portfolio application! This application is built with Flutter and serves as a digital resume to showcase my professional journey, technical expertise, projects, and services.
 
----
+## 👨‍💻 About Me
 
-## ✨ Overview
-
-This project is designed for developers who want a **ready-to-use portfolio** with minimal effort.
-
-Just edit a JSON file, replace images, and you're good to go 💪
+**Computer Science graduate and Flutter Developer** with hands-on experience building scalable mobile applications. I am passionate about sharing knowledge as a Coding Instructor and continuously growing through professional projects. I specialize in crafting high-performance, cross-platform apps using Flutter, Clean Architecture, and AI integrations (like Gemini LLM).
 
 ---
 
-## 🔥 Features
+## 🛠️ Tech Stack & Expertise
 
-- 🎨 Clean & Modern UI
-- 📱 Responsive on all screen sizes
-- ⚡ High Performance
-- 🧩 Easy to Customize
-- 📊 JSON-based Data System
-- 🖼️ Easy Image Replacement
-- ♻️ Reusable Widgets Structure
+* **Mobile Development:** Flutter, Dart, Clean Architecture & MVVM, BLoC / Cubit State Management, Advanced UI & Animations
+* **AI & Backend Integration:** Gemini AI (LLM Integration), REST APIs, Firebase (Auth & Firestore), Python Flask APIs
+* **Database & Storage:** Firestore, Hive, SharedPreferences, Flutter Secure Storage
+* **Software Engineering:** OOP, Design Patterns, SOLID Principles, Git & GitHub
 
 ---
 
-## 📂 Project Structure
+## 📂 Featured Projects
 
-```bash
-lib/
- ┣ core/
- ┃ ┣ data/        # JSON Data (Edit your info here)
- ┃ ┣ constants/
- ┃ ┣ utils/
- ┃ ┗ theme/
- ┣ widgets/       # Reusable widgets
- ┗ main.dart
+### 🎓 Eduon LMS
+A comprehensive learning platform featuring YouTube API integration, structured roadmaps, and a community hub for tech organizations.
+* **Tech Stack:** Flutter, Dart, YouTube API, Clean Architecture, BLoC.
+* **Source Code:** [GitHub Repository](https://github.com/MohamedRefky/Eduon)
 
-assets/
- ┗ images/        # Profile & project images
-```
+### 🍏 Diety App
+An AI-powered fitness assistant using Gemini AI and Machine Learning (Decision Tree) to provide personalized diet plans based on user metrics.
+* **Tech Stack:** Flutter, Gemini AI, Python Flask, Firebase, ML.
+* **Source Code:** [GitHub Repository](https://github.com/MohamedRefky/Diety_app)
 
 ---
 
-## 🛠️ Getting Started
+## 💼 Experience & Services
 
-### 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/MohamedRefky/Mohamed-Refky-Portfolio.git
-cd your-repo
-```
+* **Mobile App Development:** Building high-performance, cross-platform apps with Flutter, focusing on scalability and user experience.
+* **AI & API Integration:** Integrating LLMs (Gemini), REST APIs, and Firebase to create smart, data-driven applications.
+* **Architecture Design:** Implementing Clean Architecture and SOLID principles to ensure maintainable and testable codebases.
+* **Coding Instruction:** Simplifying complex programming concepts for students as an Instructor at iSchool.
 
 ---
 
-### 2️⃣ Install Dependencies
+## 🚀 Running the Project
 
-```bash
-flutter pub get
-```
+To run this portfolio app locally:
 
----
-
-### 3️⃣ Customize Your Data
-
-Go to:
-
-```
-lib/core/data/
-```
-
-Edit the JSON file and update:
-
-- 👤 Name & Title  
-- 💼 Projects  
-- 🧠 Skills  
-- 📞 Contact Info  
-- 🔗 Social Links  
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/MohamedRefky/Mohamed-Refky-Portfolio.git
+   ```
+2. **Navigate to the directory:**
+   ```bash
+   cd Mohamed-Refky-Portfolio
+   ```
+3. **Install dependencies:**
+   ```bash
+   flutter pub get
+   ```
+4. **Run the application:**
+   ```bash
+   flutter run
+   ```
 
 ---
 
-### 4️⃣ Replace Images
+## 📬 Contact Me
 
-Go to:
+Let's connect! Feel free to reach out for collaborations or job opportunities:
 
-```
-assets/images/
-```
-
-- Add your personal photo  
-- Replace project images  
+* **LinkedIn:** [Mohamed Refky](https://www.linkedin.com/in/mohamedrefky/)
+* **GitHub:** [MohamedRefky](https://github.com/MohamedRefky)
+* **WhatsApp:** [+201019964918](https://wa.me/201019964918)
+* **Email:** [mohamedrifky9765@gmail.com](mailto:mohamedrifky9765@gmail.com)
 
 ---
 
-### 5️⃣ Run the App
-
-```bash
-flutter run
-```
-
----
-
-## 📸 Screenshots
-
-> Add your app screenshots here
-
----
-
-## 🔗 Links
-
-- 🌐 Live Portfolio: (https://lnkd.in/dma8_XjS)
-- 💻 Source Code: (https://lnkd.in/df48A6ik) 
-
----
-
-## 🎯 Use Case
-
-- Developers Portfolio  
-- Freelancers Showcase  
-- Personal Branding  
-- Job Applications  
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!  
-Feel free to fork the repo and submit a pull request.
-
----
-
-## 📬 Contact
-
-- LinkedIn: https://linkedin.com/in/mohamedrefky
-- Email: mohamedrifky9765@gmail.com  
-
----
-
-## ⭐ Support
-
-If you like this project, don’t forget to give it a ⭐ on GitHub ❤️
-
----
-
-## 🧠 Tips
-
-- حاول تخلي الصور optimized عشان الأداء  
-- استخدم بيانات حقيقية علشان تزود المصداقية  
-- اعمل deploy على Firebase أو Netlify لنسخة live  
+⭐️ *If you like this portfolio or find the source code helpful, please give it a star on GitHub!*
