@@ -154,31 +154,35 @@ class _HomePageState extends State<HomePage> {
               actions: isMobileOrTablet
                   ? null
                   : [
-                      Flexible(
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            _NavBarItem(
-                              title: 'About',
-                              onPressed: () => _scrollToSection(_aboutKey),
-                            ),
-                            _NavBarItem(
-                              title: 'Services',
-                              onPressed: () => _scrollToSection(_servicesKey),
-                            ),
-                            _NavBarItem(
-                              title: 'Projects',
-                              onPressed: () => _scrollToSection(_projectsKey),
-                            ),
-                            _NavBarItem(
-                              title: 'Experience',
-                              onPressed: () => _scrollToSection(_experienceKey),
-                            ),
-                            _NavBarItem(
-                              title: 'Contact',
-                              onPressed: () => _scrollToSection(_contactKey),
-                            ),
-                          ],
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              _NavBarItem(
+                                title: 'About',
+                                onPressed: () => _scrollToSection(_aboutKey),
+                              ),
+                              _NavBarItem(
+                                title: 'Services',
+                                onPressed: () => _scrollToSection(_servicesKey),
+                              ),
+                              _NavBarItem(
+                                title: 'Projects',
+                                onPressed: () => _scrollToSection(_projectsKey),
+                              ),
+                              _NavBarItem(
+                                title: 'Experience',
+                                onPressed: () =>
+                                    _scrollToSection(_experienceKey),
+                              ),
+                              _NavBarItem(
+                                title: 'Contact',
+                                onPressed: () => _scrollToSection(_contactKey),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(width: 8),
