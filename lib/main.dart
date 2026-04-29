@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'core/utils/splash_service.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'core/theme/app_theme.dart';
-import 'pages/home_page.dart';
-import 'core/data/portfolio_data.dart';
-import 'core/constants/app_constants.dart';
+import 'pages/splash_page.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await PortfolioData.load();
   usePathUrlStrategy();
   runApp(const PortfolioApp());
 }
@@ -19,9 +15,6 @@ class PortfolioApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      SplashService.hide();
-    });
     return MaterialApp(
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
@@ -34,10 +27,10 @@ class PortfolioApp extends StatelessWidget {
           ],
         );
       },
-      title: '${AppConstants.devName} - Portfolio',
+      title: 'Mohamed Refky - Portfolio',
       theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const SplashPage(),
     );
   }
 }

@@ -53,7 +53,7 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: opacity 0.5s ease-out;
+      transition: opacity 0.2s ease-out;
     }
     .profile-container {
       position: relative;
@@ -167,8 +167,8 @@
         // Wait for animation then fade out splash
         setTimeout(() => {
           splash.style.opacity = '0';
-          setTimeout(() => splash.remove(), 300);
-        }, 300);
+          setTimeout(() => splash.remove(), 100);
+        }, 100);
       }
     }
   </script>
