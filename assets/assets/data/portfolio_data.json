@@ -111,7 +111,7 @@
       "title": "Flutter Master Course: From Zero To Hero",
       "platform": "Usama Elgendy",
       "date": "",
-      "icon": "mobileAlt"
+      "icon": "flutter"
     },
     {
       "title": "Dart Programming & OOP for Absolute Beginners",
@@ -123,7 +123,7 @@
       "title": "The Ultimate Git & GitHub Course",
       "platform": "Usama Elgendy",
       "date": "",
-      "icon": "codeBranch"
+      "icon": "github"
     },
     {
       "title": "Bachelor's in Computer Science (A+)",
@@ -141,7 +141,7 @@
       "title": "Flutter & Dart Complete Development Courses",
       "platform": "Udemy, Tharwat Samy",
       "date": "2023",
-      "icon": "video"
+      "icon": "laptopCode"
     }
   ],
   "expertise": [
