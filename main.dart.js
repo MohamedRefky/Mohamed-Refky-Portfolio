@@ -72416,7 +72416,7 @@ $2(a,b){var s,r,q=null,p=b.b
 if(p>400)p=400
 s=A.c([new A.c3(10,B.ao,B.r.aL(0.5),B.j,30)],t.E)
 r=A.p5().i(0,"image")
-return A.br(q,new A.Du(1,A.br(q,new A.E_(new A.p6(r==null?"assets/images/my_image.jpg":r,q,q),q),B.m,q,q,new A.bp(q,q,q,q,s,B.ma,B.bq),q,q,q,B.f0,q,q,q),q),B.m,q,new A.a8(0,p,0,1/0),q,q,q,q,q,q,q,q)},
+return A.br(q,new A.Du(1,A.br(q,new A.E_(new A.p6(r==null?"assets/images/my_image.png":r,q,q),q),B.m,q,q,new A.bp(q,q,q,q,s,B.ma,B.bq),q,q,q,B.f0,q,q,q),q),B.m,q,new A.a8(0,p,0,1/0),q,q,q,q,q,q,q,q)},
 $S:469}
 A.Hy.prototype={
 I(a){var s=null,r=A.cd(a).e,q=r?24:80,p=r?40:80
