@@ -16,7 +16,7 @@ class AppConstants {
 
   // Social Links
   static String get githubUrl =>
-      _info['github'] ?? 'https://github.com/Mohamedali0219';
+      _info['github'] ?? 'https://github.com/MohamedRefky';
   static String get linkedinUrl =>
       _info['linkedin'] ?? 'https://www.linkedin.com/in/mohamedrefky/';
   static String get email =>
