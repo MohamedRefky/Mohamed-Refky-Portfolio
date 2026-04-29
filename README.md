@@ -1,4 +1,4 @@
-# 🚀 Mohamed Ali Portfolio
+# 🚀 Mohamed Refky Portfolio
 
 A modern, elegant, and fully customizable **Flutter Portfolio Application** to showcase your skills, projects, and experience in a professional way.
 
@@ -47,7 +47,7 @@ assets/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/Mohamedali0219/Mohamed-Ali-Portfolio.git
+git clone https://github.com/MohamedRefky/Mohamed-Refky-Portfolio.git
 cd your-repo
 ```
 
@@ -131,8 +131,8 @@ Feel free to fork the repo and submit a pull request.
 
 ## 📬 Contact
 
-- LinkedIn: https://linkedin.com/in/mohamed-ali-khamis 
-- Email: mohamedali.d2002@gmail.com  
+- LinkedIn: https://linkedin.com/in/mohamedrefky
+- Email: mohamedrifky9765@gmail.com  
 
 ---
 
