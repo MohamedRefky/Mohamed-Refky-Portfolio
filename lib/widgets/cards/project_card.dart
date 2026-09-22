@@ -43,9 +43,19 @@ class _ProjectCardState extends State<ProjectCard> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => isHovered = true),
-      onExit: (_) => setState(() => isHovered = false),
+    return GestureDetector(
+      onTap: () {
+        if (widget.liveDemoUrl != null) {
+          _launchUrl(widget.liveDemoUrl);
+        } else if (widget.playStoreUrl != null) {
+          _launchUrl(widget.playStoreUrl);
+        } else if (widget.githubUrl != null) {
+          _launchUrl(widget.githubUrl);
+        }
+      },
+      child: MouseRegion(
+        onEnter: (_) => setState(() => isHovered = true),
+        onExit: (_) => setState(() => isHovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
@@ -250,6 +260,7 @@ class _ProjectCardState extends State<ProjectCard> {
             ),
           ],
         ),
+      ),
       ),
     );
   }
