@@ -15,7 +15,6 @@ class ProjectCard extends StatefulWidget {
   final String? appStoreUrl;
   final String? githubUrl;
   final String? liveDemoUrl;
-  final bool isFeatured;
 
   const ProjectCard({
     super.key,
@@ -27,7 +26,6 @@ class ProjectCard extends StatefulWidget {
     this.appStoreUrl,
     this.githubUrl,
     this.liveDemoUrl,
-    this.isFeatured = false,
   });
 
   @override
@@ -99,6 +97,9 @@ class _ProjectCardState extends State<ProjectCard> {
         onExit: (_) => setState(() => isHovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
+        constraints: BoxConstraints(
+          minHeight: ResponsiveBreakpoints.of(context).isMobile ? 0 : 470,
+        ),
         decoration: BoxDecoration(
           color: AppColors.cardBackground,
           borderRadius: BorderRadius.circular(16),
@@ -134,80 +135,46 @@ class _ProjectCardState extends State<ProjectCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Image Section — fixed height
-            SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  // The actual project image — vivid, no darkening
-                  AnimatedScale(
-                    duration: const Duration(milliseconds: 500),
-                    scale: isHovered ? 1.08 : 1.0,
-                    child: widget.imageUrl.startsWith('http')
-                        ? Image.network(widget.imageUrl, fit: BoxFit.cover)
-                        : Image.asset(widget.imageUrl, fit: BoxFit.cover),
-                  ),
-                  // Subtle bottom gradient — doesn't wash out image
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      height: 80,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                          colors: [
-                            Colors.black.withValues(alpha: 0.55),
-                            Colors.transparent,
-                          ],
-                        ),
-                      ),
+            // Image Section — responsive 16:9 ratio, complete and uncropped
+            AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Container(
+                color: const Color(0xFF0F172A),
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    // The actual project image — vivid, complete without cropping
+                    AnimatedScale(
+                      duration: const Duration(milliseconds: 500),
+                      scale: isHovered ? 1.04 : 1.0,
+                      child: widget.imageUrl.startsWith('http')
+                          ? Image.network(
+                              widget.imageUrl,
+                              fit: BoxFit.contain,
+                              alignment: Alignment.center,
+                            )
+                          : Image.asset(
+                              widget.imageUrl,
+                              fit: BoxFit.contain,
+                              alignment: Alignment.center,
+                            ),
                     ),
-                  ),
-                  // Featured Project Badge
-                  if (widget.isFeatured)
+                    // Subtle bottom gradient for mobile chip readability
                     Positioned(
-                      top: 12,
-                      left: 12,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
                       child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 5,
-                        ),
+                        height: 50,
                         decoration: BoxDecoration(
-                          gradient: AppColors.primaryGradient,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.primary.withValues(alpha: 0.5),
-                              blurRadius: 8,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.star_rounded,
-                              size: 14,
-                              color: Colors.white,
-                            ),
-                            SizedBox(width: 4),
-                            Text(
-                              'Featured',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 11,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 0.5,
-                              ),
-                            ),
-                          ],
+                          gradient: LinearGradient(
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                            colors: [
+                              Colors.black.withValues(alpha: 0.4),
+                              Colors.transparent,
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -335,6 +302,7 @@ class _ProjectCardState extends State<ProjectCard> {
                 ],
               ),
             ),
+          ),
 
             // Info Section — natural height
             Padding(
@@ -343,28 +311,33 @@ class _ProjectCardState extends State<ProjectCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    widget.title,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.textPrimary,
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: ResponsiveBreakpoints.of(context).isMobile ? 0 : 54,
                     ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                    child: Text(
+                      widget.title,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.textPrimary,
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    widget.description,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: AppColors.textSecondary,
-                      height: 1.5,
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: ResponsiveBreakpoints.of(context).isMobile ? 0 : 68,
                     ),
-                    maxLines: 4,
-                    overflow: TextOverflow.ellipsis,
+                    child: Text(
+                      widget.description,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: AppColors.textSecondary,
+                        height: 1.5,
+                      ),                    ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 14),
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
