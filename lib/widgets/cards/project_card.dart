@@ -12,8 +12,10 @@ class ProjectCard extends StatefulWidget {
   final String imageUrl;
   final List<String> technologies;
   final String? playStoreUrl;
+  final String? appStoreUrl;
   final String? githubUrl;
   final String? liveDemoUrl;
+  final bool isFeatured;
 
   const ProjectCard({
     super.key,
@@ -22,8 +24,10 @@ class ProjectCard extends StatefulWidget {
     required this.imageUrl,
     required this.technologies,
     this.playStoreUrl,
+    this.appStoreUrl,
     this.githubUrl,
     this.liveDemoUrl,
+    this.isFeatured = false,
   });
 
   @override
@@ -41,14 +45,51 @@ class _ProjectCardState extends State<ProjectCard> {
     }
   }
 
+  Widget _buildMobileChip({
+    required Widget icon,
+    required String label,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        decoration: BoxDecoration(
+          color: Colors.black.withValues(alpha: 0.7),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: Colors.white.withValues(alpha: 0.3),
+          ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            icon,
+            const SizedBox(width: 5),
+            Text(
+              label,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 11,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (widget.liveDemoUrl != null) {
-          _launchUrl(widget.liveDemoUrl);
+        if (widget.appStoreUrl != null) {
+          _launchUrl(widget.appStoreUrl);
         } else if (widget.playStoreUrl != null) {
           _launchUrl(widget.playStoreUrl);
+        } else if (widget.liveDemoUrl != null) {
+          _launchUrl(widget.liveDemoUrl);
         } else if (widget.githubUrl != null) {
           _launchUrl(widget.githubUrl);
         }
@@ -127,72 +168,170 @@ class _ProjectCardState extends State<ProjectCard> {
                       ),
                     ),
                   ),
-                  // GitHub button — appears on hover (desktop) or always on mobile
+                  // Featured Project Badge
+                  if (widget.isFeatured)
+                    Positioned(
+                      top: 12,
+                      left: 12,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 5,
+                        ),
+                        decoration: BoxDecoration(
+                          gradient: AppColors.primaryGradient,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.primary.withValues(alpha: 0.5),
+                              blurRadius: 8,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: const Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.star_rounded,
+                              size: 14,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 4),
+                            Text(
+                              'Featured',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 11,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 0.5,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  // Action buttons — appears on hover (desktop)
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 300),
                     opacity: isHovered ? 1.0 : 0.0,
                     child: Container(
-                      color: Colors.black.withValues(alpha: 0.35),
+                      color: Colors.black.withValues(alpha: 0.5),
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: Center(
                         child: Wrap(
-                          spacing: 12,
-                          runSpacing: 12,
+                          spacing: 10,
+                          runSpacing: 10,
                           alignment: WrapAlignment.center,
                           children: [
+                            if (widget.playStoreUrl != null)
+                              PrimaryButton(
+                                text: 'Google Play',
+                                icon: const FaIcon(
+                                  FontAwesomeIcons.googlePlay,
+                                  size: 15,
+                                ),
+                                onPressed: () =>
+                                    _launchUrl(widget.playStoreUrl),
+                              ),
+                            if (widget.appStoreUrl != null)
+                              PrimaryButton(
+                                text: 'App Store',
+                                icon: const FaIcon(
+                                  FontAwesomeIcons.appStore,
+                                  size: 15,
+                                ),
+                                onPressed: () =>
+                                    _launchUrl(widget.appStoreUrl),
+                              ),
+                            if (widget.liveDemoUrl != null)
+                              PrimaryButton(
+                                text: 'Live Demo',
+                                icon: const Icon(Icons.open_in_new, size: 15),
+                                onPressed: () =>
+                                    _launchUrl(widget.liveDemoUrl),
+                              ),
                             if (widget.githubUrl != null)
                               OutlineButton(
                                 text: 'GitHub',
                                 icon: const FaIcon(
                                   FontAwesomeIcons.github,
-                                  size: 16,
+                                  size: 15,
                                 ),
                                 onPressed: () => _launchUrl(widget.githubUrl),
-                              ),
-                            if (widget.liveDemoUrl != null)
-                              PrimaryButton(
-                                text: 'Live Demo',
-                                icon: const Icon(Icons.open_in_new, size: 16),
-                                onPressed: () =>
-                                    _launchUrl(widget.liveDemoUrl),
                               ),
                           ],
                         ),
                       ),
                     ),
                   ),
-                  // Mobile: GitHub icon button at bottom right (always visible)
-                  if (widget.githubUrl != null)
-                    Positioned(
-                      bottom: 10,
-                      right: 12,
-                      child: Builder(
-                        builder: (context) {
-                          final isMobile = ResponsiveBreakpoints.of(context).isMobile;
-                          if (!isMobile) return const SizedBox.shrink();
-                          return GestureDetector(
-                            onTap: () => _launchUrl(widget.githubUrl),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                              decoration: BoxDecoration(
-                                color: Colors.black.withValues(alpha: 0.6),
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                  color: Colors.white.withValues(alpha: 0.3),
+                  // Mobile: Action chips at bottom right (always visible on mobile)
+                  Positioned(
+                    bottom: 10,
+                    right: 12,
+                    left: 12,
+                    child: Builder(
+                      builder: (context) {
+                        final isMobile =
+                            ResponsiveBreakpoints.of(context).isMobile;
+                        if (!isMobile) return const SizedBox.shrink();
+                        return Align(
+                          alignment: Alignment.bottomRight,
+                          child: Wrap(
+                            spacing: 6,
+                            runSpacing: 6,
+                            alignment: WrapAlignment.end,
+                            children: [
+                              if (widget.playStoreUrl != null)
+                                _buildMobileChip(
+                                  icon: const FaIcon(
+                                    FontAwesomeIcons.googlePlay,
+                                    size: 11,
+                                    color: Colors.white,
+                                  ),
+                                  label: 'Google Play',
+                                  onTap: () =>
+                                      _launchUrl(widget.playStoreUrl),
                                 ),
-                              ),
-                              child: const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  FaIcon(FontAwesomeIcons.github, size: 14, color: Colors.white),
-                                  SizedBox(width: 6),
-                                  Text('GitHub', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500)),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                              if (widget.appStoreUrl != null)
+                                _buildMobileChip(
+                                  icon: const FaIcon(
+                                    FontAwesomeIcons.appStore,
+                                    size: 11,
+                                    color: Colors.white,
+                                  ),
+                                  label: 'App Store',
+                                  onTap: () =>
+                                      _launchUrl(widget.appStoreUrl),
+                                ),
+                              if (widget.liveDemoUrl != null)
+                                _buildMobileChip(
+                                  icon: const Icon(
+                                    Icons.open_in_new,
+                                    size: 12,
+                                    color: Colors.white,
+                                  ),
+                                  label: 'Demo',
+                                  onTap: () =>
+                                      _launchUrl(widget.liveDemoUrl),
+                                ),
+                              if (widget.githubUrl != null)
+                                _buildMobileChip(
+                                  icon: const FaIcon(
+                                    FontAwesomeIcons.github,
+                                    size: 11,
+                                    color: Colors.white,
+                                  ),
+                                  label: 'GitHub',
+                                  onTap: () =>
+                                      _launchUrl(widget.githubUrl),
+                                ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
+                  ),
                 ],
               ),
             ),
@@ -207,11 +346,11 @@ class _ProjectCardState extends State<ProjectCard> {
                   Text(
                     widget.title,
                     style: const TextStyle(
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: AppColors.textPrimary,
                     ),
-                    maxLines: 1,
+                    maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 8),
@@ -222,7 +361,7 @@ class _ProjectCardState extends State<ProjectCard> {
                       color: AppColors.textSecondary,
                       height: 1.5,
                     ),
-                    maxLines: 3,
+                    maxLines: 4,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 12),
