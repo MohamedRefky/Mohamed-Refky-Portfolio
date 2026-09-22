@@ -1,4 +1,4 @@
-name: Mohamed_Refky_Portfolio
+name: mohamed_refky_portfolio
 description: "Mohamed Refky Portfolio"
 
 publish_to: 'none' 
@@ -49,6 +49,5 @@ flutter:
     - assets/
     - assets/data/
     - assets/images/
-    - assets/pdf/
 
 
