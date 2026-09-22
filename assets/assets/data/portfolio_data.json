@@ -14,7 +14,7 @@
   },
   "stats": [
     {
-      "title": "4+",
+      "title": "5+",
       "subtitle": "Production-Ready Apps",
       "icon": "mobileScreen"
     },
@@ -71,6 +71,25 @@
     }
   ],
   "projects": [
+    {
+      "title": "AROX — On-Demand Services Marketplace",
+      "description": "Full-scale on-demand services marketplace ecosystem (Client, Craftsman & Admin Dashboard) featuring interactive real-time Google Maps tracking, open-bidding, live chat, commission billing, and FCM push notifications.",
+      "imageUrl": "assets/images/Arox.jpeg",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Bloc/Cubit",
+        "Firebase (FCM)",
+        "REST API",
+        "Google Maps",
+        "Clean Architecture"
+      ],
+      "isFeatured": true,
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.qatfa.arox",
+      "appStoreUrl": "https://apps.apple.com/us/app/arox/id6809708192",
+      "githubUrl": null,
+      "liveDemoUrl": null
+    },
     {
       "title": "Eduon LMS",
       "description": "All-in-one learning app with in-app video streaming, a built-in AI assistant, structured roadmaps, and community hub.",
