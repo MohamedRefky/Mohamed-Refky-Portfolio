@@ -33,6 +33,8 @@ class IconHelper {
         return FontAwesomeIcons.store;
       case 'brain':
         return FontAwesomeIcons.brain;
+      case 'mapLocationDot':
+        return FontAwesomeIcons.mapLocationDot;
       case 'checkDouble':
         return FontAwesomeIcons.checkDouble;
       case 'gaugeHigh':
