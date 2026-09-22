@@ -2,10 +2,10 @@
   "personalInfo": {
     "name": "Mohamed Refky",
     "title": "Flutter Developer | Mobile App Engineer",
-    "description": "I build scalable mobile applications using Flutter, Clean Architecture, and AI integrations.",
-    "about": "Computer Science graduate and Flutter Developer with hands-on experience building scalable mobile applications. Passionate about sharing knowledge as a Coding Instructor and continuously growing through professional projects.",
+    "description": "I build production-ready mobile & web apps with Flutter and Clean Architecture — from marketplace platforms on the App Store & Google Play to AI-powered solutions and business dashboards.",
+    "about": "Computer Science graduate (A+) and Flutter Developer who shipped 5+ production-ready apps. Built AROX — a full-scale marketplace live on App Store & Google Play — along with LMS platforms, AI-powered health apps, and business websites. Passionate about clean code, scalable architecture, and teaching 400+ students how to code.",
     "image": "assets/images/my_image.jpg",
-    "cv": "https://drive.google.com/file/d/1o4O1oOJMVoQpqk9DghUuFOFuRJt7Oox4/view?usp=drive_link",
+    "cv": "https://drive.google.com/file/d/1hZ3F4HMk5pFRutj-crLOPaGyNKj-3hSM/view?usp=sharing",
     "github": "https://github.com/MohamedRefky",
     "linkedin": "https://www.linkedin.com/in/mohamedrefky/",
     "email": "mohamedrifky9765@gmail.com",
@@ -14,9 +14,14 @@
   },
   "stats": [
     {
-      "title": "4+",
+      "title": "5+",
       "subtitle": "Production-Ready Apps",
       "icon": "mobileScreen"
+    },
+    {
+      "title": "400+",
+      "subtitle": "Students Taught",
+      "icon": "chalkboardTeacher"
     },
     {
       "title": "A+",
@@ -27,77 +32,131 @@
       "title": "8+",
       "subtitle": "Tech Integrations",
       "icon": "database"
-    },
-    {
-      "title": "100%",
-      "subtitle": "Clean Code",
-      "icon": "layerGroup"
     }
   ],
   "services": [
     {
       "title": "Mobile App Development",
-      "description": "Building high-performance, cross-platform apps with Flutter, focusing on scalability and user experience.",
+      "description": "Cross-platform apps built with Flutter — fast, beautiful, and ready to ship on both stores.",
       "icon": "mobileScreenButton"
     },
     {
       "title": "AI & API Integration",
-      "description": "Integrating LLMs (Gemini), REST APIs, and Firebase to create smart, data-driven applications.",
+      "description": "Connecting apps to Gemini AI, REST APIs, Firebase, and Google Maps to make them smart and real-time.",
       "icon": "server"
     },
     {
       "title": "Coding Instruction",
-      "description": "Simplifying complex programming concepts for students, focusing on logic building and problem-solving.",
+      "description": "Making programming click for 400+ students — from logic fundamentals to real-world problem solving.",
       "icon": "chalkboardTeacher"
     },
     {
       "title": "Architecture Design",
-      "description": "Implementing Clean Architecture and SOLID principles to ensure maintainable and testable codebases.",
+      "description": "Clean Architecture & SOLID principles — code that scales, reads well, and doesn't break when you add features.",
       "icon": "bolt"
     }
   ],
   "experience": [
     {
-      "title": "Coding Instructor & Mentor",
-      "company": "iSchool",
+      "title": "Mobile Application Developer",
+      "company": "Freelance — Remote",
       "period": "April 2026 – Present",
-      "description": "Selected for the position after successfully passing the rigorous DEMI evaluation phase to instruct students in programming fundamentals."
+      "description": "Shipping real products from scratch — built and delivered 5+ apps including AROX (published on both stores), an LMS platform, and business websites for real clients."
     },
     {
-      "title": "Flutter Developer (Freelance)",
-      "company": "Remote",
+      "title": "Coding Instructor & Mentor",
+      "company": "iSchool — Hybrid",
       "period": "April 2026 – Present",
-      "description": "Developed and delivered scalable, cross-platform mobile solutions including the Eduon LMS platform."
+      "description": "Teaching 400+ students programming fundamentals through hands-on online & offline sessions, making complex concepts simple and practical."
     }
   ],
   "projects": [
     {
+      "title": "AROX — On-Demand Services Marketplace",
+      "description": "Full-scale on-demand services marketplace ecosystem (Client, Craftsman & Admin Dashboard) featuring interactive real-time Google Maps tracking, open-bidding, live chat, commission billing, and FCM push notifications.",
+      "imageUrl": "assets/images/Arox.jpeg",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Bloc/Cubit",
+        "Firebase (FCM)",
+        "REST API",
+        "Google Maps",
+        "Clean Architecture"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.qatfa.arox",
+      "appStoreUrl": "https://apps.apple.com/us/app/arox/id6809708192",
+      "githubUrl": null,
+      "liveDemoUrl": null
+    },
+    {
       "title": "Eduon LMS",
-      "description": "A comprehensive learning platform featuring YouTube API integration, structured roadmaps, and a community hub for tech organizations.",
+      "description": "All-in-one learning app with in-app video streaming, structured roadmaps, background notifications, and a community hub connecting 8+ tech organizations.",
       "imageUrl": "assets/images/EDUON.jpeg",
       "technologies": [
         "Flutter",
         "Dart",
+        "BLoC",
+        "Firebase",
         "YouTube API",
-        "Clean Architecture",
-        "BLoC"
+        "FCM",
+        "WorkManager"
       ],
       "playStoreUrl": null,
       "githubUrl": "https://github.com/MohamedRefky/Eduon"
     },
     {
       "title": "Diety App",
-      "description": "AI-powered fitness assistant using Gemini AI and Machine Learning (Decision Tree) to provide personalized diet plans.",
+      "description": "Smart nutrition & fitness app with AI-powered personalized diet plans, ML-based workout generation via Flask API, calorie tracking, and guided meditation.",
       "imageUrl": "assets/images/Diety.jpeg",
       "technologies": [
         "Flutter",
-        "Gemini AI",
-        "Python Flask",
+        "Dart",
         "Firebase",
-        "ML"
+        "Python Flask",
+        "Machine Learning",
+        "BLoC"
       ],
       "playStoreUrl": null,
       "githubUrl": "https://github.com/MohamedRefky/Diety_app"
+    },
+    {
+      "title": "Eng. Islam Ahmed Platform",
+      "description": "Engineering platform to showcase courses, enable trainee bookings, and browse engineering books and structural projects.",
+      "imageUrl": "assets/images/Eng_Eslam_Ahmed_project.png",
+      "technologies": [
+        "Flutter Web",
+        "Dart",
+        "Responsive Dark UI",
+        "Advanced Filtering"
+      ],
+      "playStoreUrl": null,
+      "githubUrl": null,
+      "liveDemoUrl": "https://eslam-ahmed.pages.dev/"
+    },
+    {
+      "title": "The 5th Real Estate",
+      "description": "Real estate platform with advanced multi-criteria property filtering, building showcases, and a Firebase admin dashboard.",
+      "imageUrl": "assets/images/The_5th.png",
+      "technologies": [
+        "Flutter Web",
+        "Firebase",
+        "Admin Dashboard",
+        "Dynamic Filtering",
+        "WhatsApp API"
+      ],
+      "playStoreUrl": null,
+      "githubUrl": null,
+      "liveDemoUrl": "https://the-5th-realestate-eg.pages.dev/"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "university": "Faculty of Computers and Artificial Intelligence, Benha University — Benha, Egypt",
+      "period": "2020 – 2024",
+      "grade": "A+",
+      "icon": "graduationCap"
     }
   ],
   "certificates": [
@@ -174,6 +233,10 @@
       "icon": "brain"
     },
     {
+      "name": "Google Maps",
+      "icon": "mapLocationDot"
+    },
+    {
       "name": "Git / GitHub",
       "icon": "github"
     },
@@ -189,17 +252,17 @@
   "expertiseDetails": [
     {
       "title": "Problem Solver",
-      "desc": "Turning complex problems into elegant, scalable code.",
+      "desc": "I break down complex challenges into clean, efficient solutions.",
       "icon": "brain"
     },
     {
       "title": "Clean Code",
-      "desc": "Maintainable architectures following SOLID principles.",
+      "desc": "SOLID principles and Clean Architecture — code that grows with your project.",
       "icon": "checkDouble"
     },
     {
       "title": "AI Integration",
-      "desc": "Building smart apps powered by Gemini AI and ML models.",
+      "desc": "Bringing AI into mobile apps with Gemini and custom ML models.",
       "icon": "bolt"
     }
   ],
@@ -210,9 +273,9 @@
       "skills": [
         "Flutter & Dart",
         "Clean Architecture & MVVM",
-        "BLoC / Cubit State Management",
-        "Advanced UI & Animations",
-        "YouTube API Integration"
+        "BLoC / Cubit / Provider",
+        "Google Maps SDK",
+        "Advanced UI & Animations"
       ]
     },
     {
@@ -221,8 +284,9 @@
       "skills": [
         "Gemini AI (LLM Integration)",
         "Python Flask APIs",
-        "Firebase (Auth & Firestore)",
-        "RESTful API & Postman"
+        "Firebase (Auth, Firestore, FCM, Storage)",
+        "RESTful API (Dio, HTTP)",
+        "Google Cloud Platform"
       ]
     },
     {
@@ -242,6 +306,7 @@
       "skills": [
         "Firestore Database",
         "Hive & SharedPreferences",
+        "SQL",
         "Flutter Secure Storage"
       ]
     }
