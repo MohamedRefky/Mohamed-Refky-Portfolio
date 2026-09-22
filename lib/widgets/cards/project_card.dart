@@ -43,33 +43,44 @@ class _ProjectCardState extends State<ProjectCard> {
     }
   }
 
-  Widget _buildMobileChip({
+  Widget _buildActionBtn({
+    required String text,
     required Widget icon,
-    required String label,
     required VoidCallback onTap,
+    bool isPrimary = true,
   }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: Colors.black.withValues(alpha: 0.7),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: Colors.white.withValues(alpha: 0.3),
-          ),
+          gradient: isPrimary ? AppColors.primaryGradient : null,
+          color: isPrimary ? null : Colors.transparent,
+          borderRadius: BorderRadius.circular(10),
+          border: isPrimary
+              ? null
+              : Border.all(color: AppColors.primary, width: 1.5),
+          boxShadow: isPrimary
+              ? [
+                  BoxShadow(
+                    color: const Color(0xFF6366F1).withValues(alpha: 0.35),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ]
+              : null,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             icon,
-            const SizedBox(width: 5),
+            const SizedBox(width: 6),
             Text(
-              label,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 11,
-                fontWeight: FontWeight.w500,
+              text,
+              style: TextStyle(
+                color: isPrimary ? Colors.white : AppColors.primary,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -232,73 +243,6 @@ class _ProjectCardState extends State<ProjectCard> {
                       ),
                     ),
                   ),
-                  // Mobile: Action chips at bottom right (always visible on mobile)
-                  Positioned(
-                    bottom: 10,
-                    right: 12,
-                    left: 12,
-                    child: Builder(
-                      builder: (context) {
-                        final isMobile =
-                            ResponsiveBreakpoints.of(context).isMobile;
-                        if (!isMobile) return const SizedBox.shrink();
-                        return Align(
-                          alignment: Alignment.bottomRight,
-                          child: Wrap(
-                            spacing: 6,
-                            runSpacing: 6,
-                            alignment: WrapAlignment.end,
-                            children: [
-                              if (widget.playStoreUrl != null)
-                                _buildMobileChip(
-                                  icon: const FaIcon(
-                                    FontAwesomeIcons.googlePlay,
-                                    size: 11,
-                                    color: Colors.white,
-                                  ),
-                                  label: 'Google Play',
-                                  onTap: () =>
-                                      _launchUrl(widget.playStoreUrl),
-                                ),
-                              if (widget.appStoreUrl != null)
-                                _buildMobileChip(
-                                  icon: const FaIcon(
-                                    FontAwesomeIcons.appStore,
-                                    size: 11,
-                                    color: Colors.white,
-                                  ),
-                                  label: 'App Store',
-                                  onTap: () =>
-                                      _launchUrl(widget.appStoreUrl),
-                                ),
-                              if (widget.liveDemoUrl != null)
-                                _buildMobileChip(
-                                  icon: const Icon(
-                                    Icons.open_in_new,
-                                    size: 12,
-                                    color: Colors.white,
-                                  ),
-                                  label: 'Demo',
-                                  onTap: () =>
-                                      _launchUrl(widget.liveDemoUrl),
-                                ),
-                              if (widget.githubUrl != null)
-                                _buildMobileChip(
-                                  icon: const FaIcon(
-                                    FontAwesomeIcons.github,
-                                    size: 11,
-                                    color: Colors.white,
-                                  ),
-                                  label: 'GitHub',
-                                  onTap: () =>
-                                      _launchUrl(widget.githubUrl),
-                                ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -307,67 +251,131 @@ class _ProjectCardState extends State<ProjectCard> {
             // Info Section — natural height
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: ResponsiveBreakpoints.of(context).isMobile ? 0 : 54,
-                    ),
-                    child: Text(
-                      widget.title,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: ResponsiveBreakpoints.of(context).isMobile ? 0 : 68,
-                    ),
-                    child: Text(
-                      widget.description,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: AppColors.textSecondary,
-                        height: 1.5,
-                      ),                    ),
-                  ),
-                  const SizedBox(height: 14),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: widget.technologies
-                        .map(
-                          (tech) => Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.primary.withValues(alpha: 0.1),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: AppColors.primary.withValues(alpha: 0.3),
-                              ),
-                            ),
-                            child: Text(
-                              tech,
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: AppColors.secondary,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+              child: Builder(
+                builder: (context) {
+                  final isMobile =
+                      ResponsiveBreakpoints.of(context).isMobile;
+                  final isTablet =
+                      ResponsiveBreakpoints.of(context).isTablet;
+                  final isTouchDevice = isMobile || isTablet;
+
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: isMobile ? 0 : 54,
+                        ),
+                        child: Text(
+                          widget.title,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.textPrimary,
                           ),
-                        )
-                        .toList(),
-                  ),
-                ],
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: isMobile ? 0 : 68,
+                        ),
+                        child: Text(
+                          widget.description,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: AppColors.textSecondary,
+                            height: 1.5,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: widget.technologies
+                            .map(
+                              (tech) => Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 6,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: AppColors.primary.withValues(alpha: 0.1),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                    color: AppColors.primary.withValues(alpha: 0.3),
+                                  ),
+                                ),
+                                child: Text(
+                                  tech,
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: AppColors.secondary,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                      if (isTouchDevice) ...[
+                        const SizedBox(height: 16),
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: [
+                            if (widget.playStoreUrl != null)
+                              _buildActionBtn(
+                                text: 'Google Play',
+                                icon: const FaIcon(
+                                  FontAwesomeIcons.googlePlay,
+                                  size: 13,
+                                  color: Colors.white,
+                                ),
+                                isPrimary: true,
+                                onTap: () => _launchUrl(widget.playStoreUrl),
+                              ),
+                            if (widget.appStoreUrl != null)
+                              _buildActionBtn(
+                                text: 'App Store',
+                                icon: const FaIcon(
+                                  FontAwesomeIcons.appStore,
+                                  size: 13,
+                                  color: Colors.white,
+                                ),
+                                isPrimary: true,
+                                onTap: () => _launchUrl(widget.appStoreUrl),
+                              ),
+                            if (widget.liveDemoUrl != null)
+                              _buildActionBtn(
+                                text: 'Live Demo',
+                                icon: const Icon(
+                                  Icons.open_in_new,
+                                  size: 14,
+                                  color: Colors.white,
+                                ),
+                                isPrimary: true,
+                                onTap: () => _launchUrl(widget.liveDemoUrl),
+                              ),
+                            if (widget.githubUrl != null)
+                              _buildActionBtn(
+                                text: 'GitHub',
+                                icon: const FaIcon(
+                                  FontAwesomeIcons.github,
+                                  size: 13,
+                                  color: AppColors.primary,
+                                ),
+                                isPrimary: false,
+                                onTap: () => _launchUrl(widget.githubUrl),
+                              ),
+                          ],
+                        ),
+                      ],
+                    ],
+                  );
+                },
               ),
             ),
           ],
