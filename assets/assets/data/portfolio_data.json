@@ -73,31 +73,62 @@
   "projects": [
     {
       "title": "Eduon LMS",
-      "description": "A comprehensive learning platform featuring YouTube API integration, structured roadmaps, and a community hub for tech organizations.",
+      "description": "All-in-one learning app with in-app video streaming, a built-in AI assistant, structured roadmaps, and community hub.",
       "imageUrl": "assets/images/EDUON.jpeg",
       "technologies": [
         "Flutter",
         "Dart",
+        "BLoC",
+        "Firebase",
         "YouTube API",
-        "Clean Architecture",
-        "BLoC"
+        "OpenRouter AI"
       ],
       "playStoreUrl": null,
       "githubUrl": "https://github.com/MohamedRefky/Eduon"
     },
     {
       "title": "Diety App",
-      "description": "AI-powered fitness assistant using Gemini AI and Machine Learning (Decision Tree) to provide personalized diet plans.",
+      "description": "Smart nutrition & fitness app featuring Gemini AI chatbot, ML diet planning via Flask, and calorie tracking.",
       "imageUrl": "assets/images/Diety.jpeg",
       "technologies": [
         "Flutter",
         "Gemini AI",
         "Python Flask",
+        "Machine Learning",
         "Firebase",
-        "ML"
+        "BLoC"
       ],
       "playStoreUrl": null,
       "githubUrl": "https://github.com/MohamedRefky/Diety_app"
+    },
+    {
+      "title": "Eng. Islam Ahmed Platform",
+      "description": "Engineering platform to showcase courses, enable trainee bookings, and browse engineering books and structural projects.",
+      "imageUrl": "assets/images/Eng_Eslam_Ahmed_project.png",
+      "technologies": [
+        "Flutter Web",
+        "Dart",
+        "Responsive UI",
+        "Dynamic Filtering"
+      ],
+      "playStoreUrl": null,
+      "githubUrl": null,
+      "liveDemoUrl": "https://eslam-ahmed.pages.dev/"
+    },
+    {
+      "title": "The 5th Real Estate",
+      "description": "Real estate platform with advanced multi-criteria property filtering, building showcases, and a Firebase admin dashboard.",
+      "imageUrl": "assets/images/The_5th.png",
+      "technologies": [
+        "Flutter Web",
+        "Firebase",
+        "Admin Dashboard",
+        "Dynamic Filtering",
+        "WhatsApp API"
+      ],
+      "playStoreUrl": null,
+      "githubUrl": null,
+      "liveDemoUrl": "https://the-5th-realestate-eg.pages.dev/"
     }
   ],
   "certificates": [
