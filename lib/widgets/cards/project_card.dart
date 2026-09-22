@@ -161,12 +161,12 @@ class _ProjectCardState extends State<ProjectCard> {
                       child: widget.imageUrl.startsWith('http')
                           ? Image.network(
                               widget.imageUrl,
-                              fit: BoxFit.contain,
+                              fit: BoxFit.cover,
                               alignment: Alignment.center,
                             )
                           : Image.asset(
                               widget.imageUrl,
-                              fit: BoxFit.contain,
+                              fit: BoxFit.cover,
                               alignment: Alignment.center,
                             ),
                     ),
