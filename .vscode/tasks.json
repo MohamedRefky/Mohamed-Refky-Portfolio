@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Web for Production (Cloudflare)",
+      "type": "shell",
+      "command": "flutter.bat build web --release --no-tree-shake-icons",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
+
