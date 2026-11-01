@@ -3,7 +3,7 @@
     "name": "Mohamed Refky",
     "title": "Flutter Developer | Mobile App Engineer",
     "description": "I build production-ready mobile & web apps with Flutter and Clean Architecture — from marketplace platforms on the App Store & Google Play to AI-powered solutions and business dashboards.",
-    "about": "Computer Science graduate (A+) and Flutter Developer who shipped 5+ production-ready apps. Built AROX — a full-scale marketplace live on App Store & Google Play — along with LMS platforms, AI-powered health apps, and business websites. Passionate about clean code, scalable architecture, and teaching 400+ students how to code.",
+    "about": "Computer Science graduate (Graduation Project: A+) and Flutter Developer who shipped 5+ production-ready apps. Built AROX — a full-scale marketplace live on App Store & Google Play — along with LMS platforms, AI-powered health apps, and business websites. Passionate about clean code, scalable architecture, and teaching 400+ students how to code.",
     "image": "assets/images/my_image.jpg",
     "cv": "https://drive.google.com/file/d/1DhmkxmSVydc2uxzJtuN9VmY5KluUZ2UG/view?usp=drive_link",
     "github": "https://github.com/MohamedRefky",
@@ -25,7 +25,7 @@
     },
     {
       "title": "A+",
-      "subtitle": "Graduation Grade",
+      "subtitle": "Graduation Project Grade",
       "icon": "graduationCap"
     },
     {
@@ -61,19 +61,25 @@
       "title": "Mobile Application Developer",
       "company": "Freelance — Remote",
       "period": "April 2026 – Present",
-      "description": "Shipping real products from scratch — built and delivered 5+ apps including AROX (published on both stores), an LMS platform, and business websites for real clients."
+      "description": "Built AROX, a full-scale service-marketplace platform published on Google Play and the App Store, and delivered 2 business web platforms for clients (The 5th Real Estate, Eng. Islam Ahmed Office)."
     },
     {
       "title": "Coding Instructor & Mentor",
       "company": "iSchool — Hybrid",
       "period": "April 2026 – Present",
-      "description": "Teaching 400+ students programming fundamentals through hands-on online & offline sessions, making complex concepts simple and practical."
+      "description": "Delivered 650+ hours of live instruction and mentorship to 400+ students through online and in-person sessions, selected via a competitive technical evaluation."
+    },
+    {
+      "title": "Flutter Developer (Training & Graduation Project)",
+      "company": "Training & Graduation Project",
+      "period": "2024 – 2025",
+      "description": "Completed Flutter & Dart training and built the Diety fitness app as a graduation project."
     }
   ],
   "projects": [
     {
       "title": "AROX — On-Demand Services Marketplace",
-      "description": "Full-scale on-demand services marketplace ecosystem (Client, Craftsman & Admin Dashboard) featuring interactive real-time Google Maps tracking, open-bidding, live chat, commission billing, and FCM push notifications.",
+      "description": "Full-scale on-demand services marketplace with Client and Craftsman modes in one app (60+ screens) and an Admin Dashboard offering app-wide analytics and full control over the platform. Integrates 92 REST API endpoints covering the full client and craftsman lifecycle from signup to final billing, interactive real-time Google Maps to locate nearby craftsmen and tasks, open-bidding, real-time chat, subscription/commission billing, dispute resolution, and FCM push notifications.",
       "imageUrl": "assets/images/Arox.jpeg",
       "technologies": [
         "Flutter",
@@ -82,7 +88,9 @@
         "Firebase (FCM)",
         "REST API",
         "Google Maps",
-        "Clean Architecture"
+        "Clean Architecture",
+        "Unit Testing",
+        "CI/CD"
       ],
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.qatfa.arox",
       "appStoreUrl": "https://apps.apple.com/us/app/arox/id6809708192",
@@ -91,7 +99,7 @@
     },
     {
       "title": "Eduon LMS",
-      "description": "All-in-one learning app with in-app video streaming, structured roadmaps, background notifications, and a community hub connecting 8+ tech organizations.",
+      "description": "All-in-one learning app with structured learning paths and roadmaps, in-app video streaming with real-time progress tracking, secure Firebase Auth, background notifications, and a community hub connecting 8+ tech organizations (IEEE, GDG).",
       "imageUrl": "assets/images/EDUON.jpeg",
       "technologies": [
         "Flutter",
@@ -107,7 +115,7 @@
     },
     {
       "title": "Diety App",
-      "description": "Smart nutrition & fitness app with AI-powered personalized diet plans, ML-based workout generation via Flask API, calorie tracking, and guided meditation.",
+      "description": "Smart nutrition & fitness app generating personalized fitness and diet plans, tested by 50+ users. Includes a 1D CNN prototype (trained in Python on 100+ samples) served via a Flask API, plus workout, meal planning, progress tracking, and guided meditation.",
       "imageUrl": "assets/images/Diety.jpeg",
       "technologies": [
         "Flutter",
@@ -121,8 +129,8 @@
       "githubUrl": "https://github.com/MohamedRefky/Diety_app"
     },
     {
-      "title": "Eng. Islam Ahmed Platform",
-      "description": "Engineering platform to showcase courses, enable trainee bookings, and browse engineering books and structural projects.",
+      "title": "Eng. Islam Ahmed Office",
+      "description": "Responsive, dark-themed engineering & training platform for courses and trainee bookings, with a digital engineering library (dynamic filtering) and a portfolio section with file downloads.",
       "imageUrl": "assets/images/Eng_Eslam_Ahmed_project.png",
       "technologies": [
         "Flutter Web",
@@ -136,7 +144,7 @@
     },
     {
       "title": "The 5th Real Estate",
-      "description": "Real estate platform with advanced multi-criteria property filtering, building showcases, and a Firebase admin dashboard.",
+      "description": "Responsive real-estate platform listing properties and units across 12+ areas, with advanced search/filtering, direct WhatsApp booking, and a secure Firebase admin dashboard for real-time property management (add, edit, hide, delete), dynamic property forms, and bulk JSON upload.",
       "imageUrl": "assets/images/The_5th.png",
       "technologies": [
         "Flutter Web",
@@ -146,8 +154,22 @@
         "WhatsApp API"
       ],
       "playStoreUrl": null,
-      "githubUrl": null,
+      "githubUrl": "https://github.com/MohamedRefky/the_5th_real_estate",
       "liveDemoUrl": "https://the-5th-realestate-eg.pages.dev/"
+    },
+    {
+      "title": "NX Media",
+      "description": "Responsive, dark-themed landing page for a video editing service with pricing tiers, FAQ, and an order form that generates a pre-filled WhatsApp message with a live price estimate. Built with separate HTML, CSS, and JavaScript files and deployed on Cloudflare Pages.",
+      "imageUrl": "assets/images/NX_Media.png",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Cloudflare Pages"
+      ],
+      "playStoreUrl": null,
+      "githubUrl": "https://github.com/MohamedRefky/NX-MEDIA",
+      "liveDemoUrl": "https://nx-media.pages.dev/"
     }
   ],
   "education": [
@@ -155,7 +177,7 @@
       "degree": "Bachelor of Science in Computer Science",
       "university": "Faculty of Computers and Artificial Intelligence, Benha University — Benha, Egypt",
       "period": "2020 – 2024",
-      "grade": "A+",
+      "grade": "Very Good | Graduation Project: A+",
       "icon": "graduationCap"
     }
   ],
@@ -185,21 +207,21 @@
       "icon": "github"
     },
     {
-      "title": "Bachelor's in Computer Science (A+)",
+      "title": "Bachelor's in Computer Science (Very Good)",
       "platform": "Benha University",
       "date": "2024",
       "icon": "graduationCap"
     },
     {
-      "title": "Flutter & Dart Full Development Diploma",
+      "title": "Flutter & Dart Development Diploma",
       "platform": "EraaSoft",
       "date": "2024",
       "icon": "laptopCode"
     },
     {
-      "title": "Flutter & Dart Complete Development Courses",
-      "platform": "Udemy, Tharwat Samy",
-      "date": "2023",
+      "title": "Flutter Development Course",
+      "platform": "Eng. Tharwat Samy (Online)",
+      "date": "2024 – 2025",
       "icon": "laptopCode"
     }
   ],
@@ -272,10 +294,12 @@
       "icon": "mobileScreen",
       "skills": [
         "Flutter & Dart",
+        "Flutter Web & Responsive UI",
         "Clean Architecture & MVVM",
         "BLoC / Cubit / Provider",
         "Google Maps SDK",
-        "Advanced UI & Animations"
+        "Advanced UI & Animations",
+        "HTML, CSS, JavaScript (working knowledge)"
       ]
     },
     {
@@ -297,6 +321,7 @@
         "OOP & Design Patterns",
         "Data Structures & Algorithms",
         "SOLID Principles",
+        "Unit Testing & CI/CD",
         "Machine Learning Basics"
       ]
     },
@@ -329,7 +354,7 @@
     },
     {
       "platform": "Email",
-      "url": "mailto:mohamedrifky9765@gmail.com",
+      "url": "mailto:mohamedrefky9765@gmail.com",
       "icon": "email"
     }
   ]
