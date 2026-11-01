@@ -63,6 +63,10 @@ class IconHelper {
         return FontAwesomeIcons.download;
       case 'eye':
         return FontAwesomeIcons.eye;
+      case 'globe':
+        return FontAwesomeIcons.globe;
+      case 'desktop':
+        return FontAwesomeIcons.desktop;
       case 'linkedin':
         return FontAwesomeIcons.linkedinIn;
       case 'whatsapp':
