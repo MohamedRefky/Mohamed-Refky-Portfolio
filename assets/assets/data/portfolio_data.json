@@ -14,24 +14,24 @@
   },
   "stats": [
     {
-      "title": "5+",
-      "subtitle": "Production-Ready Apps",
+      "title": "+2",
+      "subtitle": "Years Experience",
+      "icon": "briefcase"
+    },
+    {
+      "title": "6+",
+      "subtitle": "Shipped Projects",
       "icon": "mobileScreen"
     },
     {
-      "title": "400+",
-      "subtitle": "Students Taught",
+      "title": "+650",
+      "subtitle": "Teaching Hours",
       "icon": "chalkboardTeacher"
     },
     {
-      "title": "A+",
-      "subtitle": "Graduation Project Grade",
-      "icon": "graduationCap"
-    },
-    {
-      "title": "8+",
-      "subtitle": "Tech Integrations",
-      "icon": "database"
+      "title": "+400",
+      "subtitle": "Students Mentored",
+      "icon": "userGraduate"
     }
   ],
   "services": [
