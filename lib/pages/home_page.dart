@@ -4,7 +4,6 @@ import '../core/theme/app_colors.dart';
 import '../core/constants/app_constants.dart';
 import '../widgets/animations/animated_gradient_background.dart';
 import '../sections/hero_section.dart';
-import '../sections/key_metrics_section.dart';
 import '../sections/about_section.dart';
 import '../sections/projects_section.dart';
 import '../sections/tech_stack_section.dart';
@@ -197,7 +196,6 @@ class _HomePageState extends State<HomePage> {
                     onContactMe: () => _scrollToSection(_contactKey),
                     onViewServices: () => _scrollToSection(_servicesKey),
                   ),
-                  const KeyMetricsSection(),
                   AboutSection(key: _aboutKey),
                   const ExpertiseSection(),
                   ServicesSection(key: _servicesKey),
