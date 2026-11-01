@@ -236,6 +236,10 @@
       "icon": "flutter"
     },
     {
+      "name": "Flutter Web",
+      "icon": "globe"
+    },
+    {
       "name": "Dart",
       "icon": "code"
     },
@@ -254,6 +258,10 @@
     {
       "name": "REST APIs",
       "icon": "link"
+    },
+    {
+      "name": "Responsive Web Design",
+      "icon": "desktop"
     },
     {
       "name": "Gemini AI",
