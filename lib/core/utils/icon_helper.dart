@@ -47,6 +47,22 @@ class IconHelper {
         return FontAwesomeIcons.graduationCap;
       case 'chalkboardTeacher':
         return FontAwesomeIcons.chalkboardUser;
+      case 'briefcase':
+        return FontAwesomeIcons.briefcase;
+      case 'networkWired':
+        return FontAwesomeIcons.networkWired;
+      case 'users':
+        return FontAwesomeIcons.users;
+      case 'userGraduate':
+        return FontAwesomeIcons.userGraduate;
+      case 'calendarDays':
+        return FontAwesomeIcons.calendarDays;
+      case 'filePdf':
+        return FontAwesomeIcons.filePdf;
+      case 'download':
+        return FontAwesomeIcons.download;
+      case 'eye':
+        return FontAwesomeIcons.eye;
       case 'linkedin':
         return FontAwesomeIcons.linkedinIn;
       case 'whatsapp':

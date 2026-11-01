@@ -3,14 +3,13 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/data/portfolio_data.dart';
+import '../../core/models/portfolio_models.dart';
 import '../../core/widgets/section_title.dart';
-
 
 class ExperienceSection extends StatelessWidget {
   const ExperienceSection({super.key});
 
-  List<Map<String, dynamic>> get experiences =>
-      List<Map<String, dynamic>>.from(PortfolioData.data['experience'] ?? []);
+  List<ExperienceModel> get experiences => PortfolioData.experience;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,7 @@ class ExperienceSection extends StatelessWidget {
 }
 
 class _TimelineItem extends StatelessWidget {
-  final Map<String, dynamic> experience;
+  final ExperienceModel experience;
   final bool isLast;
   final int index;
 
@@ -114,22 +113,23 @@ class _TimelineItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (isMobile)
+                if (isMobile && experience.period.isNotEmpty)
                   Text(
-                    experience['period']!,
+                    experience.period,
                     style: const TextStyle(
                       color: AppColors.secondary,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                if (isMobile) const SizedBox(height: 8),
+                if (isMobile && experience.period.isNotEmpty)
+                  const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
                       child: Text(
-                        experience['title']!,
+                        experience.title,
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -137,9 +137,9 @@ class _TimelineItem extends StatelessWidget {
                         ),
                       ),
                     ),
-                    if (!isMobile)
+                    if (!isMobile && experience.period.isNotEmpty)
                       Text(
-                        experience['period']!,
+                        experience.period,
                         style: const TextStyle(
                           color: AppColors.secondary,
                           fontWeight: FontWeight.bold,
@@ -147,18 +147,20 @@ class _TimelineItem extends StatelessWidget {
                       ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  experience['company']!,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: AppColors.textSecondary,
+                if (experience.company.isNotEmpty) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    experience.company,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: AppColors.textSecondary,
+                    ),
                   ),
-                ),
-                if (experience['description'] != null) ...[
+                ],
+                if (experience.description.isNotEmpty) ...[
                   const SizedBox(height: 12),
                   Text(
-                    experience['description']!,
+                    experience.description,
                     style: const TextStyle(
                       fontSize: 15,
                       color: AppColors.textSecondary,

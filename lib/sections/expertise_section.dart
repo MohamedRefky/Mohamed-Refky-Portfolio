@@ -47,13 +47,8 @@ class _ExpertiseSectionState extends State<ExpertiseSection> {
   Widget build(BuildContext context) {
     final isMobile = ResponsiveBreakpoints.of(context).isMobile;
 
-    final List<Map<String, dynamic>> expertise = List<Map<String, dynamic>>.from(
-      PortfolioData.data['expertise'] ?? [],
-    );
-    
-    final List<Map<String, dynamic>> details = List<Map<String, dynamic>>.from(
-      PortfolioData.data['expertiseDetails'] ?? [],
-    );
+    final expertise = PortfolioData.expertise;
+    final details = PortfolioData.expertiseDetails;
 
     return Container(
       width: double.infinity,
@@ -80,13 +75,13 @@ class _ExpertiseSectionState extends State<ExpertiseSection> {
                   child: Row(
                     children: [
                       FaIcon(
-                        IconHelper.getIcon(item['icon'] ?? ''),
+                        IconHelper.getIcon(item.icon),
                         color: AppColors.primary,
                         size: isMobile ? 24 : 30,
                       ),
                       const SizedBox(width: 15),
                       Text(
-                        item['name'],
+                        item.name,
                         style: TextStyle(
                           fontSize: isMobile ? 16 : 22,
                           fontWeight: FontWeight.w500,
@@ -116,9 +111,9 @@ class _ExpertiseSectionState extends State<ExpertiseSection> {
                   alignment: WrapAlignment.center,
                   children: details.map((detail) => _ExpertiseDetail(
                         width: cardWidth,
-                        title: detail['title'] ?? '',
-                        desc: detail['desc'] ?? '',
-                        icon: IconHelper.getIcon(detail['icon'] ?? ''),
+                        title: detail.title,
+                        desc: detail.desc,
+                        icon: IconHelper.getIcon(detail.icon),
                       )).toList().animate(interval: 200.ms).fadeIn().scale(),
                 );
               },

@@ -4,14 +4,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/data/portfolio_data.dart';
+import '../../core/models/portfolio_models.dart';
 import '../../core/widgets/section_title.dart';
 import '../../core/utils/icon_helper.dart';
 
 class EducationSection extends StatelessWidget {
   const EducationSection({super.key});
 
-  List<Map<String, dynamic>> get educationList =>
-      List<Map<String, dynamic>>.from(PortfolioData.data['education'] ?? []);
+  List<EducationModel> get educationList => PortfolioData.education;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class EducationSection extends StatelessWidget {
 }
 
 class _EducationItem extends StatelessWidget {
-  final Map<String, dynamic> education;
+  final EducationModel education;
   final bool isLast;
   final int index;
 
@@ -117,15 +117,16 @@ class _EducationItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (isMobile)
+                if (isMobile && education.period.isNotEmpty)
                   Text(
-                    education['period'] ?? '',
+                    education.period,
                     style: const TextStyle(
                       color: AppColors.secondary,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                if (isMobile) const SizedBox(height: 8),
+                if (isMobile && education.period.isNotEmpty)
+                  const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,9 +134,9 @@ class _EducationItem extends StatelessWidget {
                     Expanded(
                       child: Row(
                         children: [
-                          if (education['icon'] != null) ...[
+                          if (education.icon.isNotEmpty) ...[
                             FaIcon(
-                              IconHelper.getIcon(education['icon']),
+                              IconHelper.getIcon(education.icon),
                               size: 20,
                               color: AppColors.primary,
                             ),
@@ -143,7 +144,7 @@ class _EducationItem extends StatelessWidget {
                           ],
                           Expanded(
                             child: Text(
-                              education['degree'] ?? '',
+                              education.degree,
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -154,9 +155,9 @@ class _EducationItem extends StatelessWidget {
                         ],
                       ),
                     ),
-                    if (!isMobile)
+                    if (!isMobile && education.period.isNotEmpty)
                       Text(
-                        education['period'] ?? '',
+                        education.period,
                         style: const TextStyle(
                           color: AppColors.secondary,
                           fontWeight: FontWeight.bold,
@@ -164,15 +165,17 @@ class _EducationItem extends StatelessWidget {
                       ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  education['university'] ?? '',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: AppColors.textSecondary,
+                if (education.university.isNotEmpty) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    education.university,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: AppColors.textSecondary,
+                    ),
                   ),
-                ),
-                if (education['grade'] != null) ...[
+                ],
+                if (education.grade.isNotEmpty) ...[
                   const SizedBox(height: 12),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -184,7 +187,7 @@ class _EducationItem extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Grade: ${education['grade']}',
+                      'Grade: ${education.grade}',
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,

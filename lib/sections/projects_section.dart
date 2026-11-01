@@ -41,25 +41,17 @@ class ProjectsSection extends StatelessWidget {
                 cardWidth = (constraints.maxWidth - 64) / 3;
               }
 
-              final projectsList = List<Map<String, dynamic>>.from(
-                PortfolioData.data['projects'] ?? [],
-              );
+              final projectsList = PortfolioData.projects;
 
               final cards = projectsList.map((project) => ProjectCard(
-                    title: project['title'] ?? '',
-                    description: project['description'] ?? '',
-                    imageUrl: project['imageUrl'] ?? '',
-                    technologies: List<String>.from(project['technologies'] ?? []),
-                    playStoreUrl: (project['playStoreUrl'] != null &&
-                            (project['playStoreUrl'] as String).isNotEmpty)
-                        ? project['playStoreUrl']
-                        : null,
-                    appStoreUrl: (project['appStoreUrl'] != null &&
-                            (project['appStoreUrl'] as String).isNotEmpty)
-                        ? project['appStoreUrl']
-                        : null,
-                    githubUrl: project['githubUrl'],
-                    liveDemoUrl: project['liveDemoUrl'],
+                    title: project.title,
+                    description: project.description,
+                    imageUrl: project.imageUrl,
+                    technologies: project.technologies,
+                    playStoreUrl: project.playStoreUrl,
+                    appStoreUrl: project.appStoreUrl,
+                    githubUrl: project.githubUrl,
+                    liveDemoUrl: project.liveDemoUrl,
                   )).toList();
 
               return Wrap(

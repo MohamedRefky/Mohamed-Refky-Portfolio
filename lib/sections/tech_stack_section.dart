@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import '../../core/models/portfolio_models.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/data/portfolio_data.dart';
 import '../../core/utils/icon_helper.dart';
@@ -37,8 +38,7 @@ class _TechStackSectionState extends State<TechStackSection> {
     super.dispose();
   }
 
-  List<Map<String, dynamic>> get categories =>
-      List<Map<String, dynamic>>.from(PortfolioData.data['techStack'] ?? []);
+  List<TechCategoryModel> get categories => PortfolioData.techStack;
 
   @override
   Widget build(BuildContext context) {
@@ -79,9 +79,9 @@ class _TechStackSectionState extends State<TechStackSection> {
                             right: index == categories.length - 1 ? 0 : 20,
                           ),
                           child: _SkillCategoryCard(
-                            title: category['title'],
-                            icon: IconHelper.getIcon(category['icon'] ?? ''),
-                            skills: List<String>.from(category['skills'] ?? []),
+                            title: category.title,
+                            icon: IconHelper.getIcon(category.icon),
+                            skills: category.skills,
                             index: index,
                             cardWidth: 300, // Fixed width for mobile scroll
                           ),
@@ -138,9 +138,9 @@ class _TechStackSectionState extends State<TechStackSection> {
                       final index = entry.key;
                       final category = entry.value;
                       return _SkillCategoryCard(
-                        title: category['title'],
-                        icon: IconHelper.getIcon(category['icon'] ?? ''),
-                        skills: List<String>.from(category['skills'] ?? []),
+                        title: category.title,
+                        icon: IconHelper.getIcon(category.icon),
+                        skills: category.skills,
                         index: index,
                         cardWidth: cardWidth,
                       );

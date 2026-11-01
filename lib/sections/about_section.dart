@@ -25,8 +25,9 @@ class AboutSection extends StatelessWidget {
           const SectionTitle(title: 'About Me'),
           const SizedBox(height: 40),
           Text(
-                PortfolioData.data['personalInfo']?['about'] ??
-                    'Flutter developer with 2+ years of experience integrating modern backends.',
+                PortfolioData.personalInfo.about.isNotEmpty
+                    ? PortfolioData.personalInfo.about
+                    : 'Flutter developer with 2+ years of experience building cross-platform apps.',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   fontSize: 18,
                   height: 1.8,
@@ -43,38 +44,38 @@ class AboutSection extends StatelessWidget {
                 runSpacing: 16,
                 alignment: WrapAlignment.center,
                 children: [
-                  if (PortfolioData.data['personalInfo']?['location'] != null)
-                    _InfoChip(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.locationDot,
-                        size: 16,
-                        color: AppColors.primary,
-                      ),
-                      text: PortfolioData.data['personalInfo']!['location']!,
+                  _InfoChip(
+                    icon: const FaIcon(
+                      FontAwesomeIcons.locationDot,
+                      size: 16,
+                      color: AppColors.primary,
                     ),
-                  if (PortfolioData
-                          .data['personalInfo']?['yearsOfExperience'] !=
-                      null)
-                    _InfoChip(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.briefcase,
-                        size: 16,
-                        color: AppColors.primary,
-                      ),
-                      text:
-                          '${PortfolioData.data['personalInfo']!['yearsOfExperience']!} Years Experience',
+                    text: PortfolioData.personalInfo.location ?? 'Cairo, Egypt',
+                  ),
+                  _InfoChip(
+                    icon: const FaIcon(
+                      FontAwesomeIcons.briefcase,
+                      size: 16,
+                      color: AppColors.primary,
                     ),
-                  if (PortfolioData.data['personalInfo']?['availability'] !=
-                      null)
-                    _InfoChip(
-                      icon: const FaIcon(
-                        FontAwesomeIcons.calendarCheck,
-                        size: 16,
-                        color: AppColors.primary,
-                      ),
-                      text:
-                          PortfolioData.data['personalInfo']!['availability']!,
+                    text: '2+ Years Experience',
+                  ),
+                  _InfoChip(
+                    icon: const FaIcon(
+                      FontAwesomeIcons.graduationCap,
+                      size: 16,
+                      color: AppColors.primary,
                     ),
+                    text: 'B.Sc. Computer Science (Grade: A+)',
+                  ),
+                  _InfoChip(
+                    icon: const FaIcon(
+                      FontAwesomeIcons.checkDouble,
+                      size: 16,
+                      color: AppColors.primary,
+                    ),
+                    text: 'Military Service: Completed',
+                  ),
                 ],
               )
               .animate()
@@ -88,9 +89,7 @@ class AboutSection extends StatelessWidget {
                         2 // 2 columns with 24 spacing
                   : 260.0;
 
-              final statsList = List<Map<String, dynamic>>.from(
-                PortfolioData.data['stats'] ?? [],
-              );
+              final statsList = PortfolioData.stats;
 
               return Wrap(
                 spacing: 24,
@@ -100,10 +99,10 @@ class AboutSection extends StatelessWidget {
                     .map(
                       (stat) => _StatCard(
                         width: cardWidth,
-                        title: stat['title'] ?? '',
-                        subtitle: stat['subtitle'] ?? '',
+                        title: stat.title,
+                        subtitle: stat.subtitle,
                         icon: FaIcon(
-                          IconHelper.getIcon(stat['icon'] ?? ''),
+                          IconHelper.getIcon(stat.icon),
                           size: isMobile ? 32 : 40,
                           color: AppColors.secondary,
                         ),

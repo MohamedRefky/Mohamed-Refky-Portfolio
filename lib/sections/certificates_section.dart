@@ -14,9 +14,7 @@ class CertificatesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile = ResponsiveBreakpoints.of(context).isMobile;
-    final certsList = List<Map<String, dynamic>>.from(
-      PortfolioData.data['certificates'] ?? [],
-    );
+    final certsList = PortfolioData.certificates;
 
     return Container(
       padding: EdgeInsets.symmetric(
@@ -34,11 +32,11 @@ class CertificatesSection extends StatelessWidget {
                   runSpacing: 24,
                   alignment: WrapAlignment.center,
                   children: certsList.map((cert) => CertificateCard(
-                        title: cert['title'] ?? '',
-                        platform: cert['platform'] ?? '',
-                        date: cert['date'] ?? '',
+                        title: cert.title,
+                        platform: cert.platform,
+                        date: cert.date,
                         icon: FaIcon(
-                          IconHelper.getIcon(cert['icon'] ?? ''),
+                          IconHelper.getIcon(cert.icon),
                           color: AppColors.primary,
                           size: isMobile ? 24 : 32,
                         ),

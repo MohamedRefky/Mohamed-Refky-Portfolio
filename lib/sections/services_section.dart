@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import '../../core/models/portfolio_models.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/data/portfolio_data.dart';
 import '../../core/utils/icon_helper.dart';
@@ -36,8 +37,7 @@ class _ServicesSectionState extends State<ServicesSection> {
     super.dispose();
   }
 
-  List<Map<String, dynamic>> get services =>
-      List<Map<String, dynamic>>.from(PortfolioData.data['services'] ?? []);
+  List<ServiceModel> get services => PortfolioData.services;
 
   @override
   Widget build(BuildContext context) {
@@ -72,10 +72,10 @@ class _ServicesSectionState extends State<ServicesSection> {
                         padding: const EdgeInsets.only(right: 24),
                         child: _ServiceCard(
                           width: 300,
-                          title: service['title'],
-                          description: service['description'],
+                          title: service.title,
+                          description: service.description,
                           icon: FaIcon(
-                            IconHelper.getIcon(service['icon'] ?? ''),
+                            IconHelper.getIcon(service.icon),
                             color: AppColors.secondary,
                             size: isMobile ? 24 : 30,
                           ),
@@ -123,10 +123,10 @@ class _ServicesSectionState extends State<ServicesSection> {
                 final service = entry.value;
                 return _ServiceCard(
                   width: 280,
-                  title: service['title'],
-                  description: service['description'],
+                  title: service.title,
+                  description: service.description,
                   icon: FaIcon(
-                    IconHelper.getIcon(service['icon'] ?? ''),
+                    IconHelper.getIcon(service.icon),
                     color: AppColors.secondary,
                     size: isMobile ? 24 : 30,
                   ),

@@ -53,12 +53,10 @@ class ContactSection extends StatelessWidget {
                   ? (constraints.maxWidth - 24) / 2 
                   : 240.0;
 
-              final socialLinks = List<Map<String, dynamic>>.from(
-                PortfolioData.data['socialLinks'] ?? [],
-              );
+              final socialLinks = PortfolioData.socialLinks;
 
               final List<Widget> cards = socialLinks.map((link) {
-                String displayValue = link['url'] ?? '';
+                String displayValue = link.url;
                 if (displayValue.startsWith('mailto:')) {
                   displayValue = displayValue.replaceAll('mailto:', '');
                 } else if (displayValue.contains('linkedin.com/in/')) {
@@ -72,13 +70,13 @@ class ContactSection extends StatelessWidget {
                 return _ContactCard(
                   width: cardWidth,
                   icon: FaIcon(
-                    IconHelper.getIcon(link['icon'] ?? ''),
+                    IconHelper.getIcon(link.icon),
                     size: 28,
                     color: AppColors.secondary,
                   ),
-                  title: link['platform'] ?? '',
+                  title: link.platform,
                   value: displayValue,
-                  onTap: () => _launchUrl(link['url'] ?? ''),
+                  onTap: () => _launchUrl(link.url),
                 );
               }).toList();
 

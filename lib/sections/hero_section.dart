@@ -8,6 +8,7 @@ import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_colors.dart';
 import '../widgets/buttons/primary_button.dart';
 import '../widgets/buttons/outline_button.dart';
+import '../widgets/dialogs/cv_options_dialog.dart';
 
 class HeroSection extends StatelessWidget {
   final VoidCallback? onViewProjects;
@@ -145,18 +146,9 @@ class _HeroText extends StatelessWidget {
               onPressed: onViewProjects,
             ),
             OutlineButton(
-              text: 'View CV',
-              icon: const FaIcon(FontAwesomeIcons.fileLines, size: 20),
-              onPressed: () async {
-                try {
-                  final Uri url = Uri.parse(AppConstants.devCvPath);
-                  if (!await launchUrl(url)) {
-                    debugPrint('Could not launch $url');
-                  }
-                } catch (e) {
-                  debugPrint('Error launching CV: $e');
-                }
-              },
+              text: 'CV & Resume',
+              icon: const FaIcon(FontAwesomeIcons.download, size: 18),
+              onPressed: () => CvOptionsDialog.show(context),
             ),
             OutlineButton(
               text: 'Contact Me',
