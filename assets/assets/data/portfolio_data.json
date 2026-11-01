@@ -41,6 +41,11 @@
       "icon": "mobileScreenButton"
     },
     {
+      "title": "Web & Dashboard Development",
+      "description": "Responsive web apps, client portals, and administrative dashboards built with Flutter Web, HTML5, CSS3, and JavaScript.",
+      "icon": "globe"
+    },
+    {
       "title": "AI & API Integration",
       "description": "Connecting apps to Gemini AI, REST APIs, Firebase, and Google Maps to make them smart and real-time.",
       "icon": "server"
